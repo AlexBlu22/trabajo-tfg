@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  TFG-db:
+    container_name: TFG-db
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    restart: unless-stopped
+    ports:
+      - "3306:3306"

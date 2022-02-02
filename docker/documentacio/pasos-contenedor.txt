@@ -1,0 +1,5 @@
+Para poder ejecutar archivos [.sh]:
+
+$ sh "nombre_del_archivo".sh
+
+FIN
