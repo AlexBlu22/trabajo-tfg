@@ -30,7 +30,7 @@ s)
 echo ""
 echo "CREACION DEL CONTENEDOR"
 # comando para iniciar el docker-compose
-sudo docker-compose up -d\;
+sudo docker-compose up -d
 sleep 1
 ;;
 
