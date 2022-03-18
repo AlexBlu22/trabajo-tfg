@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es" class="h-100">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS|JS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" type="text/css" href="css_per/index.css" />
+
+    <!-- Titulo de la pagina -->
+    <title>Ericsson</title>
+    <link rel="icon" type="image/png" href="imagen/Ericsson-Logo.png" />
+  </head>
+
+  <body class="d-flex h-100 text-center">
+
+    <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <!-- Parte superior -->
+      <header class="blog-header py-3 mb-auto bg-dark">
+        <h1 class="ms-auto align-items-center fs-4 text-white mb-0">
+           <img src="imagen/Ericsson-Logo-blanco.png" width="275" height="125">
+        </h1>
+      </header>
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <!-- Parte de en medio  -->
+        
+        <main class="px-3">
+          <form action="comentarios.php" method="post">
+            <div class="input-group mb-3">
+              <input type="text" name="Site_Code" id="inputtext" class="form-control" placeholder="Site_Code" aria-label="Site_Code" aria-describedby="button-addon2" required>
+              <div class="input-group-append">
+                <button class="w-100 btn btn-danger" type="submit">Search</button>
+              </div>
+            </div>
+            <div>
+              <label for="inputtext" class="visually-hidden">Data_to_Search</label>
+              <input type="text" name="Data_to_Search" id="inputtext" class="form-control" placeholder="Data_to_Search" autofocus>
+            </div>
+            <div class="mb-3">
+              <label for="floatingTextarea2"></label>
+              <textarea type="text" class="form-control" placeholder="See hear" id="floatingTextarea2" style="height: 300px"></textarea>
+            </div>
+            <button class="w-100 btn btn-danger" type="submit">Export</button>
+          </form>
+        </main>
+      
+        <!-- Parte inferior -->
+        <footer class="mt-auto text-white-50">
+
+        </footer>
+      </div>
+    </div>
+    
+  </body>
+</html>

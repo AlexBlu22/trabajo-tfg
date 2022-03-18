@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS|JS -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+  <!-- Personal CSS -->
+  <link rel="stylesheet" type="text/css" href="css_per/sing-in-up.css" />
+
+   <!-- Titulo de la pagina -->
+   <title>Login</title>
+   <link rel="icon" type="image/png" href="imagen/Ericsson-Logo.png" />
+   </head>
+
+<body class="d-flex h-100 text-center">
+  
+ <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+   <!-- Parte superior -->
+   <header class="blog-header py-3 mb-auto bg-dark">
+     <h1 class="ms-auto align-items-center fs-4 text-white mb-0">
+        <img src="imagen/Ericsson-Logo-blanco.png" width="275" height="125">
+     </h1>
+   </header>
+   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+     <main class="form-signin">
+       <h1 class="h3 mb-3 fw-normal">Login</h1>
+       
+       <!-- Campos de registro -->
+       <form action="login.php" method="post">
+       <!-- Correo electronico -->
+       <label for="inputuser" class="visually-hidden">User</label>
+       <input type="text" name="User" id="inputuser" class="form-control" placeholder="User" required autofocus>
+       
+       <!-- Contraseña -->
+       <label for="inputPassword" class="visually-hidden">Password</label>
+       <input type="password" name="Password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+       <!-- Boton entrar -->
+       <button class="w-100 btn btn-lg btn-danger" type="submit">Log In</button>
+
+       <!-- Enlace -->
+       <a class="mt-1 mb-3 text-muted" href="sign-up.html">Sign Up</a>
+
+       <div style = "color:red" >* Invalid User or Password.</div>
+
+       <!-- Pie -->
+       <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+
+       </form>
+     </main>
+   </div>
+ </div>
+
+</body>
+
+</html>
