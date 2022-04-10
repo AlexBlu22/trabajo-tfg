@@ -6,6 +6,7 @@ const mysql = require('mysql')
 const myconn = require('express-myconnection')
 
 // Para conectarse con las rutas que estan guardadas en routes.js, la conexion la hace en la linea 31-32
+// Recuerda que [./routes] es una ruta de directorio si quieres meterte dentro de otros directorios pon la ruta a sequir
 const routes = require('./routes')
 
 // Para indicar [app.get('port')] que valor quiere que sea, en este caso el puerto

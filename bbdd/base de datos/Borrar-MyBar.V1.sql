@@ -2,11 +2,6 @@
 -- BORRAR BBDD [NO TOCAR]
 -- ======================
 
--- =========
--- FULL BBDD
--- =========
-drop database if exists databaseMyBarTFG;
-
 -- ======
 -- TABLAS
 -- ======
@@ -27,3 +22,8 @@ drop table if exists contenido_menu;
 drop table if exists comidas;
 
 -- drop table if exists cobros;
+
+-- =========
+-- FULL BBDD
+-- =========
+drop database if exists databaseMyBarTFG;

@@ -32,14 +32,48 @@ routes.post('/usuarios', (req, res) =>{
     req.getConnection((err, conn)=>{
         // Para que muestre si hay un error
         if(err) return res.send(err)
-
-        // Para que consulte en la BBDD
+        
+        // Para que agrege en la BBDD
         conn.query('INSERT INTO inf_usuarios set ?', [req.body], (err, rows)=>{
             // Para que muestre si hay un error
             if(err) return res.send(err)
 
-            // Para que pase la informacion en .json
+            // Para que muestre mensaje de confirmacion
             res.send('Usuario agregado')
+        })
+    })
+})
+
+// Ruta [http://localhost:9000/api/usuarios]
+routes.delete('/usuarios/:id_usuario', (req, res) =>{
+    req.getConnection((err, conn)=>{
+        // Para que muestre si hay un error
+        if(err) return res.send(err)
+        
+        // Para que elimine en la BBDD
+        conn.query('DELETE FROM inf_usuarios WHERE id_usuario = ?', [req.params.id_usuario], (err, rows)=>{
+            // Para que muestre si hay un error
+            if(err) return res.send(err)
+
+            // Para que muestre mensaje de confirmacion
+            res.send('Usuario eliminado')
+        })
+    })
+})
+
+// Ruta [http://localhost:9000/api/usuarios]
+routes.put('/usuarios/:id_usuario', (req, res)=>{
+    req.getConnection((err, conn)=>{
+        // Para que muestre si hay un error
+        if(err) return res.send(err)
+
+        // Para que modifique en la BBDD
+        conn.query('UPDATE inf_usuarios set ? WHERE id_usuario = ?', [req.body, req.params.id_usuario], (err, rows)=>{
+            // Para que muestre si hay un error
+            if(err) return res.send(err)
+
+            // Para que muestre si hay un error
+            res.send('Usuario modificado!')
         })
     })
 })

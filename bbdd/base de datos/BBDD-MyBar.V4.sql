@@ -26,7 +26,7 @@ create table inf_usuarios(
     usuario varchar(50) not null unique,
     correo varchar(50) not null unique,
     contrasena varchar(50) not null,
-    id_tipo_usuario int unsigned not null unique,
+    id_tipo_usuario int unsigned not null,
 	
     -- primary key
     primary key (id_usuario),
@@ -37,7 +37,7 @@ create table inf_usuarios(
 create table permisos(
 	id_permiso int unsigned not null auto_increment unique,
     permiso varchar(50),
-    id_tipo_usuario int unsigned not null unique,
+    id_tipo_usuario int unsigned not null,
     
     -- primary key
     primary key (id_permiso),
