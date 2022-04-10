@@ -38,3 +38,6 @@ app.get('/', (req, res) =>{
 
 // Ruta inf_usuarios [http://localhost:3000/inf_usuarios]
 app.use('/inf_usuarios', require('./routes/inf_usuarios'));
+
+// Ruta inf_usuarios [http://localhost:3000/permisos]
+app.use('/permisos', require('./routes/permisos'));
