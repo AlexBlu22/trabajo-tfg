@@ -35,6 +35,7 @@ routes.get('/:id_usuario', (req, res) =>{
     });
 });
 
+
 // ============================================================================== //
 // METODO POST 
 // ============================================================================== //
@@ -52,6 +53,7 @@ routes.post('/', (req, res) =>{
         });
     });
 });
+
 
 // ============================================================================== //
 // METODO DELETE 
@@ -71,21 +73,20 @@ routes.delete('/:id_usuario', (req, res) =>{
     });
 });
 
+
 // ============================================================================== //
 // METODO PUT 
 // ============================================================================== //
-// Ruta [http://localhost:9000/api/usuarios]
-routes.put('/usuarios/:id_usuario', (req, res)=>{
+// Ruta [/]
+
+// Modificar un usuario
+routes.put('/:id_usuario', (req, res)=>{
     req.getConnection((err, conn)=>{
-        // Para que muestre si hay un error
         if(err) return res.send(err);
 
-        // Para que modifique en la BBDD
         conn.query('UPDATE inf_usuarios set ? WHERE id_usuario = ?', [req.body, req.params.id_usuario], (err, rows)=>{
-            // Para que muestre si hay un error
             if(err) return res.send(err);
 
-            // Para que muestre si hay un error
             res.send('Usuario modificado!');
         });
     });
