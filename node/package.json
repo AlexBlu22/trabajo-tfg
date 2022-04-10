@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon src/prueba/server.js",
+    "mybar": "nodemon src/mybar/server.js"
   },
   "keywords": [],
   "author": "",

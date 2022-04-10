@@ -9,7 +9,9 @@ routes.get('/', (req, res) =>{
     res.send('API myBar')
 })
 
-// 
+// ============================================================================== //
+// METODO GET 
+// ============================================================================== //
 // Ruta [http://localhost:9000/api/usuarios]
 routes.get('/usuarios', (req, res) =>{
     req.getConnection((err, conn)=>{
@@ -27,6 +29,9 @@ routes.get('/usuarios', (req, res) =>{
     })
 })
 
+// ============================================================================== //
+// METODO POST 
+// ============================================================================== //
 // Ruta [http://localhost:9000/api/usuarios]
 routes.post('/usuarios', (req, res) =>{
     req.getConnection((err, conn)=>{
@@ -44,6 +49,9 @@ routes.post('/usuarios', (req, res) =>{
     })
 })
 
+// ============================================================================== //
+// METODO DELETE 
+// ============================================================================== //
 // Ruta [http://localhost:9000/api/usuarios]
 routes.delete('/usuarios/:id_usuario', (req, res) =>{
     req.getConnection((err, conn)=>{
@@ -61,6 +69,9 @@ routes.delete('/usuarios/:id_usuario', (req, res) =>{
     })
 })
 
+// ============================================================================== //
+// METODO PUT 
+// ============================================================================== //
 // Ruta [http://localhost:9000/api/usuarios]
 routes.put('/usuarios/:id_usuario', (req, res)=>{
     req.getConnection((err, conn)=>{

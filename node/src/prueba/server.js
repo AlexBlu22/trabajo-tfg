@@ -5,7 +5,7 @@ const app = express()
 const mysql = require('mysql')
 const myconn = require('express-myconnection')
 
-// Para conectarse con las rutas que estan guardadas en routes.js, la conexion la hace en la linea 31-32
+// Para conectarse con las rutas que estan guardadas en routes.js, la conexion la hace en la linea 34-35
 // Recuerda que [./routes] es una ruta de directorio si quieres meterte dentro de otros directorios pon la ruta a sequir
 const routes = require('./routes')
 
@@ -32,7 +32,9 @@ app.get('/', (req, res) =>{
 })
 
 // Ruta [http://localhost:9000/api] , todas las demas rutas que van a continuacion estan en routes.js
-app.use('/api', routes)
+//app.use('/api', routes)
+
+app.use('/inf_usuarios', require('./rutas/inf_usuarios'))
 
 
 // Para indicar en que puesto quiere que escuche
