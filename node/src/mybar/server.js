@@ -6,7 +6,9 @@ const mysql = require('mysql');
 const myconn = require('express-myconnection');
 
 
-// Settings
+// ============================================================================== //
+// SETTINGS
+// ============================================================================== //
 app.set('port', process.env.PORT || 3000);
 
 const dbOpscions = {
@@ -18,18 +20,24 @@ const dbOpscions = {
 };
 
 
-// Middlewares
+// ============================================================================== //
+// MIDDLEWARES
+// ============================================================================== //
 app.use(myconn(mysql, dbOpscions, 'single'));
 app.use(express.json());
 
 
-// Starting the server
+// ============================================================================== //
+// STARTING THE SERVER
+// ============================================================================== //
 app.listen(app.get('port'), ()=>{
     console.log('server runing on port', app.get('port'));
 });
 
 
-// Routes
+// ============================================================================== //
+// ROUTES
+// ============================================================================== //
 
 // Ruta principal [http://localhost:3000/]
 app.get('/', (req, res) =>{
@@ -41,3 +49,6 @@ app.use('/inf_usuarios', require('./routes/inf_usuarios'));
 
 // Ruta inf_usuarios [http://localhost:3000/permisos]
 app.use('/permisos', require('./routes/permisos'));
+
+// Ruta inf_usuarios [http://localhost:3000/tabla_bares]
+app.use('/tabla_bares', require('./routes/tabla_bares'));
