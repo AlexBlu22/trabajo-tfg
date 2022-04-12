@@ -64,3 +64,12 @@ app.use('/detalles_pedido', require('./routes/detalles_pedido'));
 
 // Ruta comidas [http://localhost:3000/comidas]
 app.use('/comidas', require('./routes/comidas'));
+
+// Ruta menus [http://localhost:3000/menus]
+app.use('/menus', require('./routes/menus'));
+
+// Ruta contenido_menu [http://localhost:3000/contenido_menu]
+app.use('/contenido_menu', require('./routes/contenido_menu'));
+
+// Ruta cartas [http://localhost:3000/cartas]
+app.use('/cartas', require('./routes/cartas'));

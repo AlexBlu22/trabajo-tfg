@@ -24,18 +24,10 @@ insert into inf_usuarios (id_usuario, usuario, correo, contrasena, id_tipo_usuar
 insert into inf_usuarios (id_usuario, usuario, correo, contrasena, id_tipo_usuario) values (10, 'Shandeigh', 'skift9@imageshack.us', '59898-401', 3);
 
 -- permisos
-/*
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '', '');
-*/
+insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '1111', '1');
+insert into permisos (id_permiso, permiso, id_tipo_usuario) values (2, '1011', '2');
+insert into permisos (id_permiso, permiso, id_tipo_usuario) values (3, '0010', '3');
+
 
 
 -- ---
@@ -67,8 +59,41 @@ insert into comidas (id_comida, comida, alergenos, precio) values (9, 'chuletas'
 insert into comidas (id_comida, comida, alergenos, precio) values (10, 'chuletas', 'contiene gluten', '6.93');
 
 -- menus
+insert into menus (id_menu, menu) values (1, 'menu_1');
+insert into menus (id_menu, menu) values (2, 'menu_2');
+insert into menus (id_menu, menu) values (3, 'menu_3');
+insert into menus (id_menu, menu) values (4, 'menu_4');
+insert into menus (id_menu, menu) values (5, 'menu_5');
+insert into menus (id_menu, menu) values (6, 'menu_6');
+insert into menus (id_menu, menu) values (7, 'menu_7');
+insert into menus (id_menu, menu) values (8, 'menu_8');
+insert into menus (id_menu, menu) values (9, 'menu_9');
+insert into menus (id_menu, menu) values (10, 'menu_10');
+
+
 -- contenido_menu
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (1, '1', '1');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (2, '2', '2');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (3, '3', '3');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (4, '4', '4');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (5, '5', '5');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (6, '6', '6');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (7, '7', '7');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (8, '8', '8');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (9, '9', '9');
+insert into contenido_menu (id_contenido_menu, id_menu, id_comida) values (10, '10', '10');
+
 -- cartas
+insert into cartas (id_carta, id_menu) values (1, '1');
+insert into cartas (id_carta, id_menu) values (2, '2');
+insert into cartas (id_carta, id_menu) values (3, '3');
+insert into cartas (id_carta, id_menu) values (4, '4');
+insert into cartas (id_carta, id_menu) values (5, '5');
+insert into cartas (id_carta, id_menu) values (6, '6');
+insert into cartas (id_carta, id_menu) values (7, '7');
+insert into cartas (id_carta, id_menu) values (8, '8');
+insert into cartas (id_carta, id_menu) values (9, '9');
+insert into cartas (id_carta, id_menu) values (10, '10');
 
 -- pedidos
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (1, '2022-4-26 12:30', 'no', 9);
