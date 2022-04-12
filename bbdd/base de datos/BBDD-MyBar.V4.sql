@@ -23,7 +23,7 @@ create table tipo_usuarios(
 
 create table inf_usuarios(
 	id_usuario int unsigned not null auto_increment unique,
-    usuario varchar(50) not null unique,
+    usuario varchar(50) not null,
     correo varchar(50) not null unique,
     contrasena varchar(50) not null,
     id_tipo_usuario int unsigned not null,

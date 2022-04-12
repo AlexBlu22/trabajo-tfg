@@ -73,3 +73,6 @@ app.use('/contenido_menu', require('./routes/contenido_menu'));
 
 // Ruta cartas [http://localhost:3000/cartas]
 app.use('/cartas', require('./routes/cartas'));
+
+// Ruta busqueda [http://localhost:3000/busqueda]
+app.use('/busqueda', require('./routes/busqueda'));
