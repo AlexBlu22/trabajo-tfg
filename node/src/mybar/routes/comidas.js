@@ -1,4 +1,4 @@
-// Ruta tabla_bares [http://localhost:3000/tabla_bares]
+// Ruta comidas [http://localhost:3000/comidas]
 
 const express = require('express');
 const routes = express.Router();
@@ -9,12 +9,12 @@ const routes = express.Router();
 // ============================================================================== //
 // Ruta [/]
 
-// Obtener todos los bares
+// Obtener todos los usuarios
 routes.get('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM tabla_bares', (err, rows)=>{
+        conn.query('SELECT * FROM comidas', (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);
@@ -22,12 +22,12 @@ routes.get('/', (req, res) =>{
     });
 });
 
-// Obtener un unico bar
-routes.get('/:id_bar', (req, res) =>{
+// Obtener un unico usuario
+routes.get('/:id_comida', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM tabla_bares WHERE id_bar = ?', [req.params.id_bar], (err, rows)=>{
+        conn.query('SELECT * FROM comidas WHERE id_comida = ?', [req.params.id_comida], (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);
@@ -41,15 +41,15 @@ routes.get('/:id_bar', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Agregar un nuevo bar
+// Agregar un nuevo usuario
 routes.post('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
         
-        conn.query('INSERT INTO tabla_bares set ?', [req.body], (err, rows)=>{
+        conn.query('INSERT INTO comidas set ?', [req.body], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar agregado');
+            res.send('Comida agregada');
         });
     });
 });
@@ -60,15 +60,15 @@ routes.post('/', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Borrar un bar
-routes.delete('/:id_bar', (req, res) =>{
+// Borrar un usuario
+routes.delete('/:id_comida', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
         
-        conn.query('DELETE FROM tabla_bares WHERE id_bar = ?', [req.params.id_bar], (err, rows)=>{
+        conn.query('DELETE FROM comidas WHERE id_comida = ?', [req.params.id_comida], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar eliminado');
+            res.send('Comida eliminada');
         });
     });
 });
@@ -79,15 +79,15 @@ routes.delete('/:id_bar', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Modificar un bar
-routes.put('/:id_bar', (req, res)=>{
+// Modificar un usuario
+routes.put('/:id_comida', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('UPDATE tabla_bares set ? WHERE id_bar = ?', [req.body, req.params.id_bar], (err, rows)=>{
+        conn.query('UPDATE comidas set ? WHERE id_comida = ?', [req.body, req.params.id_comida], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar modificado!');
+            res.send('Comida modificada!');
         });
     });
 });

@@ -1,4 +1,4 @@
-// Ruta tabla_bares [http://localhost:3000/tabla_bares]
+// Ruta tipo_usuarios [http://localhost:3000/tipo_usuarios]
 
 const express = require('express');
 const routes = express.Router();
@@ -9,12 +9,12 @@ const routes = express.Router();
 // ============================================================================== //
 // Ruta [/]
 
-// Obtener todos los bares
+// Obtener todos los tipos de usuarios
 routes.get('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM tabla_bares', (err, rows)=>{
+        conn.query('SELECT * FROM tipo_usuarios', (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);
@@ -22,12 +22,12 @@ routes.get('/', (req, res) =>{
     });
 });
 
-// Obtener un unico bar
-routes.get('/:id_bar', (req, res) =>{
+// Obtener un unico tipo de usuario
+routes.get('/:id_tipo_usuario', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM tabla_bares WHERE id_bar = ?', [req.params.id_bar], (err, rows)=>{
+        conn.query('SELECT * FROM tipo_usuarios WHERE id_tipo_usuario = ?', [req.params.id_tipo_usuario], (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);
@@ -41,15 +41,15 @@ routes.get('/:id_bar', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Agregar un nuevo bar
+// Agregar un nuevo tipo de usuario
 routes.post('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
         
-        conn.query('INSERT INTO tabla_bares set ?', [req.body], (err, rows)=>{
+        conn.query('INSERT INTO tipo_usuarios set ?', [req.body], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar agregado');
+            res.send('Nuevo tipo de usuarios agregado');
         });
     });
 });
@@ -60,15 +60,15 @@ routes.post('/', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Borrar un bar
-routes.delete('/:id_bar', (req, res) =>{
+// Borrar un tipo de usuario
+routes.delete('/:id_tipo_usuario', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
         
-        conn.query('DELETE FROM tabla_bares WHERE id_bar = ?', [req.params.id_bar], (err, rows)=>{
+        conn.query('DELETE FROM tipo_usuarios WHERE id_tipo_usuario = ?', [req.params.id_tipo_usuario], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar eliminado');
+            res.send('Tipo de usuarios eliminado');
         });
     });
 });
@@ -79,15 +79,15 @@ routes.delete('/:id_bar', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Modificar un bar
-routes.put('/:id_bar', (req, res)=>{
+// Modificar un tipo de usuario
+routes.put('/:id_tipo_usuario', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('UPDATE tabla_bares set ? WHERE id_bar = ?', [req.body, req.params.id_bar], (err, rows)=>{
+        conn.query('UPDATE tipo_usuarios set ? WHERE id_tipo_usuario = ?', [req.body, req.params.id_tipo_usuario], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar modificado!');
+            res.send('Tipo de usuarios modificado!');
         });
     });
 });

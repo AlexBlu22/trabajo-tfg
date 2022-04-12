@@ -44,11 +44,23 @@ app.get('/', (req, res) =>{
     res.send('Bienvenido a la API de myBar');
 });
 
+// Ruta tipo_usuarios [http://localhost:3000/tipo_usuarios]
+app.use('/tipo_usuarios', require('./routes/tipo_usuarios'));
+
 // Ruta inf_usuarios [http://localhost:3000/inf_usuarios]
 app.use('/inf_usuarios', require('./routes/inf_usuarios'));
 
-// Ruta inf_usuarios [http://localhost:3000/permisos]
+// Ruta permisos [http://localhost:3000/permisos]
 app.use('/permisos', require('./routes/permisos'));
 
-// Ruta inf_usuarios [http://localhost:3000/tabla_bares]
+// Ruta tabla_bares [http://localhost:3000/tabla_bares]
 app.use('/tabla_bares', require('./routes/tabla_bares'));
+
+// Ruta pedidos [http://localhost:3000/pedidos]
+app.use('/pedidos', require('./routes/pedidos'));
+
+// Ruta detalles_pedido [http://localhost:3000/detalles_pedido]
+app.use('/detalles_pedido', require('./routes/detalles_pedido'));
+
+// Ruta comidas [http://localhost:3000/comidas]
+app.use('/comidas', require('./routes/comidas'));

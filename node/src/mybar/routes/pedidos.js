@@ -1,4 +1,4 @@
-// Ruta tabla_bares [http://localhost:3000/tabla_bares]
+// Ruta pedidos [http://localhost:3000/pedidos]
 
 const express = require('express');
 const routes = express.Router();
@@ -9,12 +9,12 @@ const routes = express.Router();
 // ============================================================================== //
 // Ruta [/]
 
-// Obtener todos los bares
+// Obtener todos los pedidos
 routes.get('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM tabla_bares', (err, rows)=>{
+        conn.query('SELECT * FROM pedidos', (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);
@@ -22,12 +22,12 @@ routes.get('/', (req, res) =>{
     });
 });
 
-// Obtener un unico bar
-routes.get('/:id_bar', (req, res) =>{
+// Obtener un unico pedido
+routes.get('/:id_pedido', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM tabla_bares WHERE id_bar = ?', [req.params.id_bar], (err, rows)=>{
+        conn.query('SELECT * FROM pedidos WHERE id_pedido = ?', [req.params.id_pedido], (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);
@@ -41,15 +41,15 @@ routes.get('/:id_bar', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Agregar un nuevo bar
+// Agregar un nuevo pedido
 routes.post('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
         
-        conn.query('INSERT INTO tabla_bares set ?', [req.body], (err, rows)=>{
+        conn.query('INSERT INTO pedidos set ?', [req.body], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar agregado');
+            res.send('Pedido agregado');
         });
     });
 });
@@ -61,14 +61,14 @@ routes.post('/', (req, res) =>{
 // Ruta [/]
 
 // Borrar un bar
-routes.delete('/:id_bar', (req, res) =>{
+routes.delete('/:id_pedido', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
         
-        conn.query('DELETE FROM tabla_bares WHERE id_bar = ?', [req.params.id_bar], (err, rows)=>{
+        conn.query('DELETE FROM pedidos WHERE id_pedido = ?', [req.params.id_pedido], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar eliminado');
+            res.send('Pedido eliminado');
         });
     });
 });
@@ -80,14 +80,14 @@ routes.delete('/:id_bar', (req, res) =>{
 // Ruta [/]
 
 // Modificar un bar
-routes.put('/:id_bar', (req, res)=>{
+routes.put('/:id_pedido', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('UPDATE tabla_bares set ? WHERE id_bar = ?', [req.body, req.params.id_bar], (err, rows)=>{
+        conn.query('UPDATE pedidos set ? WHERE id_pedido = ?', [req.body, req.params.id_pedido], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar modificado!');
+            res.send('Pedido modificado!');
         });
     });
 });

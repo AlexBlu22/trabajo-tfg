@@ -63,7 +63,7 @@ create table comidas(
 	id_comida int unsigned not null auto_increment unique,
     comida varchar(50) not null,
     alergenos mediumtext,
-    precio decimal unsigned not null,
+    precio decimal(3,2) unsigned not null,
     
     -- primary key
     primary key (id_comida)
@@ -81,8 +81,8 @@ create table menus(
 
 create table contenido_menu(
 	id_contenido_menu int unsigned not null auto_increment unique,
-	id_menu int unsigned not null unique,
-    id_comida int unsigned not null unique,
+	id_menu int unsigned not null,
+    id_comida int unsigned not null,
     
     -- primary key
     primary key (id_contenido_menu),
@@ -93,7 +93,7 @@ create table contenido_menu(
 
 create table cartas(
 	id_carta int unsigned not null auto_increment unique,
-    id_menu int unsigned not null unique,
+    id_menu int unsigned not null,
     
     -- primary key
     primary key (id_carta),
@@ -104,9 +104,9 @@ create table cartas(
 create table pedidos(
 	id_pedido int unsigned not null auto_increment unique,
     fecha_hora datetime not null,
-    preparado boolean,
-    id_bar int unsigned not null unique,
-    /* id_cobro int unsigned not null unique */
+    preparado varchar(10),
+    id_bar int unsigned not null,
+    /* id_cobro int unsigned not null */
     
     -- primary key
     primary key (id_pedido),
@@ -118,8 +118,8 @@ create table pedidos(
 create table detalles_pedido(
 	id_detalles_pedido int unsigned not null auto_increment unique,
     cantidad int,
-    id_bar int unsigned not null unique,
-    id_comida int unsigned not null unique,
+    id_bar int unsigned not null,
+    id_comida int unsigned not null,
     
     -- primary key
     primary key (id_detalles_pedido),

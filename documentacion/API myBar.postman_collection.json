@@ -1,0 +1,827 @@
+{
+	"info": {
+		"_postman_id": "7d31541a-590e-48a3-a8e2-f7a0eac1bf37",
+		"name": "API myBar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "inf_usuarios",
+			"item": [
+				{
+					"name": "mostrar un usario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/inf_usuarios/3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inf_usuarios",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar todos los usarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/inf_usuarios",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inf_usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"Prueba-API2\",\r\n    \"correo\": \"pruebaprueba2@api.com\",\r\n    \"contrasena\": \"prueba2\",\r\n    \"id_tipo_usuario\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/inf_usuarios",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inf_usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/inf_usuarios/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inf_usuarios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"Prueba-API modificado2\",\r\n    \"correo\": \"pruebapruebamodificado2@api.com\",\r\n    \"contrasena\": \"pruebamodificada2\",\r\n    \"id_tipo_usuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/inf_usuarios/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inf_usuarios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tipo_usuarios",
+			"item": [
+				{
+					"name": "mostrar un tipo de usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/tipo_usuarios/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tipo_usuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar todos los tipos de usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/tipo_usuarios",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tipo_usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregar tipo de usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": \"Prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/tipo_usuarios",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tipo_usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar tipo de usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/tipo_usuarios/5",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tipo_usuarios",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar tipo de usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo_usuario\": \"Prueba de modificacion\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/tipo_usuarios/5",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tipo_usuarios",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "permisos",
+			"item": [
+				{
+					"name": "mostrar todos los permisos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/permisos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"permisos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar un permiso",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/permisos/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"permisos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregar permiso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"permiso\": \"Modificar\",\r\n    \"id_tipo_usuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/permisos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"permisos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar permiso",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/permisos/2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"permisos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar permiso",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"permiso\": \"Modificar 2\",\r\n    \"id_tipo_usuario\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/permisos/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"permisos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tabla_bares",
+			"item": [
+				{
+					"name": "agregar bar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Bar Paco\",\r\n    \"direccion\": \"C/ el del la otra esquina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/tabla_bares",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tabla_bares"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar todos los bares",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/tabla_bares",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tabla_bares"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar un bar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/tabla_bares/3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tabla_bares",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar bar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/tabla_bares/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tabla_bares",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar bar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Bar Manolito\",\r\n    \"direccion\": \"C/ el del la otra esquina, pues al lado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/tabla_bares/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tabla_bares",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pedidos",
+			"item": [
+				{
+					"name": "mostrar todos los pedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/pedidos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar un pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/pedidos/3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pedidos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/pedidos/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pedidos",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregar pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha_hora\": \"2022-09-08 12:35:00\",\r\n    \"preparado\": \"no\",\r\n    \"id_bar\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/pedidos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha_hora\": \"2022-04-14 14:30\",\r\n    \"preparado\": \"FALSE\",\r\n    \"id_bar\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/pedidos/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"pedidos",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "detalles_pedido",
+			"item": [
+				{
+					"name": "mostrar todos los detalles del pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/detalles_pedido",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"detalles_pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar un detalle de pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/detalles_pedido/3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"detalles_pedido",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar detalle de pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/detalles_pedido/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"detalles_pedido",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregar detalle de pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cantidad\": 2,\r\n    \"id_bar\": 4,\r\n    \"id_comida\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/detalles_pedido",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"detalles_pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar detalle de pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cantidad\": 3,\r\n    \"id_bar\": 4,\r\n    \"id_comida\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/detalles_pedido/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"detalles_pedido",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comidas",
+			"item": [
+				{
+					"name": "mostrar todos las comidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/comidas",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"comidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostrar una comida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/comidas/3",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"comidas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar detalle de pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/comidas/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"comidas",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregar comida",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comida\": \"Pruebitas con queso\",\r\n    \"alergenos\": \"puede contener Puebasas\",\r\n    \"precio\": 2.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/comidas",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"comidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modificar comida",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comida\": \"Pruebitas con queso y jamon\",\r\n    \"alergenos\": \"puede contener Puebasas y Cerdos\",\r\n    \"precio\": 4.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/comidas/11",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"comidas",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "localhost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}",
+					"host": [
+						"{{api}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api",
+			"value": "http://localhost:3000",
+			"type": "default"
+		}
+	]
+}
