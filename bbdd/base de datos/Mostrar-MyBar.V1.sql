@@ -37,6 +37,12 @@ select pedidos.id_pedido, pedidos.preparado, pedidos.fecha_hora, tabla_bares.id_
 select pedidos.id_pedido, pedidos.preparado, pedidos.fecha_hora, tabla_bares.id_bar, tabla_bares.nombre, tabla_bares.direccion, tabla_bares.telefono, detalles_pedido.id_comida
 	from pedidos left join tabla_bares on pedidos.id_bar = tabla_bares.id_bar
                  left join detalles_pedido on pedidos.id_pedido = detalles_pedido.id_pedido order by id_pedido ;
+                 
+SELECT pedidos.id_pedido, pedidos.preparado, pedidos.fecha_hora, tabla_bares.id_bar, tabla_bares.nombre, tabla_bares.direccion, tabla_bares.telefono, detalles_pedido.id_comida 
+	from pedidos 
+    left join tabla_bares on pedidos.id_bar = tabla_bares.id_bar 
+    left join detalles_pedido on pedidos.id_pedido = detalles_pedido.id_pedido 
+	WHERE id_pedido = 7;
     
 select * from tabla_bares;
 select * from pedidos;

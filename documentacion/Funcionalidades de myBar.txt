@@ -1,0 +1,44 @@
+Funcionalidades de [ myBar ]
+
+== Usuarios ==
+
+	-- Antes de acceder a la pagina --
+
+		Creacion de usuarios
+		Login
+
+	-- Una vez ya registrados en la pagina --
+
+		Visualizacion de la informacion del usuario
+		Modificacion de la informacion del usuario
+		Visualizacion de los bares
+		Visualizacion del menu del bar
+		Creacion de pedido
+		Visualizacion del estado del pedido
+
+
+== Bares ==
+
+	-- Antes de acceder a la pagina --
+
+		Creacion de usuarios [ usuario bar ]
+		Login
+
+	-- Una vez ya registrados en la pagina --
+
+		Modificar la informacion del bar [ nombre, direccion y telefono ]
+		Creacion del menu
+		Modificacion del menu
+		Visualizacion de los pedidos
+		Editar el estado de los pedidos [ listo, no listo ]
+
+
+== Administrador ==
+
+	-- Antes de acceder a la pagina --
+
+		Login
+
+	-- Una vez ya registrados en la pagina --
+
+		Visualizar, modificar y borrar
