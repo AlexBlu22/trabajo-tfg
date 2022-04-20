@@ -30,9 +30,18 @@ select * from menus;
 select * from contenido_menu;
 select * from comidas;
 
+SELECT contenido_menu.id_menu, contenido_menu.id_comida, menus.menu, comidas.comida, comidas.alergenos, comidas.precio 
+	from contenido_menu left join menus on contenido_menu.id_menu = menus.id_menu 
+				 left join comidas on contenido_menu.id_comida = comidas.id_comida;
+
 select pedidos.id_pedido, pedidos.preparado, pedidos.fecha_hora, tabla_bares.id_bar, tabla_bares.nombre, tabla_bares.direccion, tabla_bares.telefono
 	from pedidos left join tabla_bares on pedidos.id_bar = tabla_bares.id_bar;
                  
 SELECT pedidos.id_pedido, pedidos.preparado, pedidos.fecha_hora, tabla_bares.id_bar, tabla_bares.nombre, tabla_bares.direccion, tabla_bares.telefono, detalles_pedido.id_comida 
 	from pedidos left join tabla_bares on pedidos.id_bar = tabla_bares.id_bar 
-				 left join detalles_pedido on pedidos.id_pedido = detalles_pedido.id_pedido ;
+				 left join detalles_pedido on pedidos.id_pedido = detalles_pedido.id_pedido;
+
+SELECT tabla_bares.id_bar, tabla_bares.nombre, tabla_bares.direccion, tabla_bares.telefono, detalles_pedido.id_comida, comidas.comida, comidas.alergenos, comidas.precio 
+	from pedidos left join tabla_bares on pedidos.id_bar = tabla_bares.id_bar 
+				 left join detalles_pedido on pedidos.id_pedido = detalles_pedido.id_pedido
+                 left join comidas on detalles_pedido.id_comida = comidas.id_comida where tabla_bares.id_bar =1 ;

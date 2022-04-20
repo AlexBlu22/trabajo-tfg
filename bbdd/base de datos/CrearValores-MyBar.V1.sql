@@ -10,7 +10,6 @@
 insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (1, 'Administrador');
 insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (2, 'Camarero');
 insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (3, 'Cliente');
-insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (0, 'Admin BBDD');
 
 
 -- inf_usuarios
