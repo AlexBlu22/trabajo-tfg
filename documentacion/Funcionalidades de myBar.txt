@@ -5,16 +5,23 @@ Funcionalidades de [ myBar ]
 	-- Antes de acceder a la pagina --
 
 		Creacion de usuarios
+			TIPO DE USUARIO [ EN LA PAGINA HABRA LOS TIPOS DE USUARIOS (CLIENTE '3', BAR'2')
+			 Y SERA UN DESPLEGABLE QUE SE SELECCIONARA Y CUANDO SE MANDE EN EL JSON SE MANDARA EL TIPO DE USUARIO ]
 		Login
 
 	-- Una vez ya registrados en la pagina --
 
 		Visualizacion de la informacion del usuario
+			Aqui mostramos todos los registros que tiene el usuario como son
+			(usuario=Alejandro, contraseña=alex99, correo=alex@apo.com, tipo_usuario=cliente, permisos= 0010)
 		Modificacion de la informacion del usuario
+			Rectificaciones por parte del usuario de alguno de los campos
 		Visualizacion de los bares
+			Mostramos la informacion del bar nombre direccion y telefono de contacto
 		Visualizacion del menu del bar
+			Mostramos la informacion corespondiente al contenido del menu como son los productos
 		Creacion de pedido
-		Visualizacion del estado del pedido
+			Insertamos un pedido por medio de (id del pedido, fecha de peticion, estado del pedio en el preparado)
 
 
 == Bares ==
