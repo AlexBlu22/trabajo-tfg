@@ -14,7 +14,7 @@ routes.get('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM permisos', (err, rows)=>{
+        conn.query('select permisos.id_permiso, permisos.permiso, tipo_usuarios.id_tipo_usuario, tipo_usuarios.tipo_usuario from permisos left join tipo_usuarios on permisos.id_tipo_usuario = tipo_usuarios.id_tipo_usuario;', (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);
@@ -27,7 +27,7 @@ routes.get('/:id_permiso', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
 
-        conn.query('SELECT * FROM permisos WHERE id_permiso = ?', [req.params.id_permiso], (err, rows)=>{
+        conn.query('select permisos.id_permiso, permisos.permiso, tipo_usuarios.id_tipo_usuario, tipo_usuarios.tipo_usuario from permisos left join tipo_usuarios on permisos.id_tipo_usuario = tipo_usuarios.id_tipo_usuario WHERE id_permiso = ?', [req.params.id_permiso], (err, rows)=>{
             if(err) return res.send(err);
 
             res.json(rows);

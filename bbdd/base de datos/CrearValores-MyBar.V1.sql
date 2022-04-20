@@ -10,6 +10,8 @@
 insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (1, 'Administrador');
 insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (2, 'Camarero');
 insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (3, 'Cliente');
+insert into tipo_usuarios (id_tipo_usuario, tipo_usuario) values (0, 'Admin BBDD');
+
 
 -- inf_usuarios
 insert into inf_usuarios (id_usuario, usuario, correo, contrasena, id_tipo_usuario) values (1, 'Flor', 'freuss0@timesonline.co.uk', '61601-1120', 1);
@@ -35,16 +37,16 @@ insert into permisos (id_permiso, permiso, id_tipo_usuario) values (3, '0010', '
 -- ---
 
 -- tabla_bares
-insert into tabla_bares (id_bar, nombre, direccion) values (1, 'CorEnergy Infrastructure Trust, Inc.', 'Sommers');
-insert into tabla_bares (id_bar, nombre, direccion) values (2, 'Reading International Inc', '4th');
-insert into tabla_bares (id_bar, nombre, direccion) values (3, 'Pimco Municipal Income Fund II', 'Dakota');
-insert into tabla_bares (id_bar, nombre, direccion) values (4, 'Annaly Capital Management Inc', 'West');
-insert into tabla_bares (id_bar, nombre, direccion) values (5, 'EnteroMedics Inc.', 'Evergreen');
-insert into tabla_bares (id_bar, nombre, direccion) values (6, 'Lions Gate Entertainment Corporation', 'Forest Dale');
-insert into tabla_bares (id_bar, nombre, direccion) values (7, 'Citizens First Corporation', 'Leroy');
-insert into tabla_bares (id_bar, nombre, direccion) values (8, 'AmTrust Financial Services, Inc.', 'Anderson');
-insert into tabla_bares (id_bar, nombre, direccion) values (9, 'National Research Corporation', 'School');
-insert into tabla_bares (id_bar, nombre, direccion) values (10, 'HNI Corporation', 'Northfield');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (1, 'CorEnergy Infrastructure Trust, Inc.', 'Sommers', '652789463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (2, 'Reading International Inc', '4th', '252479463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (3, 'Pimco Municipal Income Fund II', 'Dakota', '755689463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (4, 'Annaly Capital Management Inc', 'West', '852784763');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (5, 'EnteroMedics Inc.', 'Evergreen', '892789463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (6, 'Lions Gate Entertainment Corporation', 'Forest Dale', '952789463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (7, 'Citizens First Corporation', 'Leroy', '322789463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (8, 'AmTrust Financial Services, Inc.', 'Anderson', '122789463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (9, 'National Research Corporation', 'School', '522789463');
+insert into tabla_bares (id_bar, nombre, direccion, telefono) values (10, 'HNI Corporation', 'Northfield', '052789463');
 
 -- comidas
 insert into comidas (id_comida, comida, alergenos, precio) values (1, 'macarrones', 'contiene gluten', '8.35');
@@ -108,13 +110,13 @@ insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (9, '2022-
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (10, '2022-5-5 12:30', 'no', 6);
 
 -- detalles_pedido
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (1, 2, 7, 6);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (2, 2, 7, 5);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (3, 3, 9, 6);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (4, 1, 5, 6);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (5, 1, 4, 9);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (6, 2, 8, 5);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (7, 1, 8, 8);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (8, 3, 4, 2);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (9, 3, 7, 1);
-insert into detalles_pedido (id_detalles_pedido, cantidad, id_bar, id_comida) values (10, 2, 9, 7);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (1, 2, 7, 6);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (2, 2, 7, 5);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (3, 3, 9, 6);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (4, 1, 5, 6);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (5, 1, 4, 9);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (6, 2, 8, 5);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (7, 1, 8, 8);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (8, 3, 4, 2);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (9, 3, 7, 1);
+insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (10, 2, 9, 7);

@@ -53,6 +53,7 @@ create table tabla_bares(
 	id_bar int unsigned not null auto_increment unique,
     nombre varchar(50) not null unique,
     direccion varchar(100) not null,
+    telefono int,
     
     -- primary key
     primary key (id_bar)
@@ -118,13 +119,13 @@ create table pedidos(
 create table detalles_pedido(
 	id_detalles_pedido int unsigned not null auto_increment unique,
     cantidad int,
-    id_bar int unsigned not null,
+    id_pedido int unsigned not null,
     id_comida int unsigned not null,
     
     -- primary key
     primary key (id_detalles_pedido),
     -- foreign key
-    foreign key (id_bar) references tabla_bares (id_bar),
+    foreign key (id_pedido) references pedidos (id_pedido),
     foreign key (id_comida) references comidas (id_comida)
 );
 
