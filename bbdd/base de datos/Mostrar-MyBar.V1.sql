@@ -29,6 +29,14 @@ select * from cartas;
 select * from menus;
 select * from contenido_menu;
 select * from comidas;
+select * from usuario_pedidos;
+
+SELECT usuario_pedidos.id_usuario_pedido, inf_usuarios.usuario, pedidos.id_pedido, tabla_bares.id_bar, tabla_bares.nombre, tabla_bares.direccion, tabla_bares.telefono, detalles_pedido.id_comida, comidas.comida, comidas.alergenos, comidas.precio, detalles_pedido.cantidad 
+	from usuario_pedidos left join inf_usuarios on usuario_pedidos.id_usuario = inf_usuarios.id_usuario 
+						 left join pedidos on usuario_pedidos.id_pedido = pedidos.id_pedido
+						 left join tabla_bares on pedidos.id_bar = tabla_bares.id_bar 
+						 left join detalles_pedido on pedidos.id_pedido = detalles_pedido.id_pedido
+						 left join comidas on detalles_pedido.id_comida = comidas.id_comida where inf_usuarios.id_usuario = 1;
 
 SELECT contenido_menu.id_menu, contenido_menu.id_comida, menus.menu, comidas.comida, comidas.alergenos, comidas.precio 
 	from contenido_menu left join menus on contenido_menu.id_menu = menus.id_menu 

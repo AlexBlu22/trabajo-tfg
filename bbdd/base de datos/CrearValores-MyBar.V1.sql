@@ -29,8 +29,6 @@ insert into permisos (id_permiso, permiso, id_tipo_usuario) values (1, '1111', '
 insert into permisos (id_permiso, permiso, id_tipo_usuario) values (2, '1011', '2');
 insert into permisos (id_permiso, permiso, id_tipo_usuario) values (3, '0010', '3');
 
-
-
 -- ---
 -- Bar
 -- ---
@@ -119,3 +117,15 @@ insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida)
 insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (8, 3, 4, 2);
 insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (9, 3, 7, 1);
 insert into detalles_pedido (id_detalles_pedido, cantidad, id_pedido, id_comida) values (10, 2, 9, 7);
+
+-- usuario_pedidos --
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (1, 1, 1);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (2, 2, 2);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (3, 3, 3);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (4, 4, 4);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (5, 5, 5);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (6, 6, 6);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (7, 7, 7);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (8, 8, 8);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (9, 9, 9);
+insert into usuario_pedidos (id_usuario_pedido, id_usuario, id_pedido) values (10, 10, 10);

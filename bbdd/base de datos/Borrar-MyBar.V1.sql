@@ -12,6 +12,8 @@ drop table if exists inf_usuarios;
 drop table if exists tipo_usuarios;
 drop table if exists permisos;
 
+drop table if exists usuario_pedidos;
+
 -- Bar
 
 drop table if exists tabla_bares;

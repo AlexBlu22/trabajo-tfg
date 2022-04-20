@@ -45,6 +45,8 @@ create table permisos(
     foreign key (id_tipo_usuario) references tipo_usuarios (id_tipo_usuario)
 );
 
+
+
 -- ---
 -- Bar
 -- ---
@@ -53,7 +55,7 @@ create table tabla_bares(
 	id_bar int unsigned not null auto_increment unique,
     nombre varchar(50) not null unique,
     direccion varchar(100) not null,
-    telefono int,
+    telefono int not null ,
     
     -- primary key
     primary key (id_bar)
@@ -129,6 +131,17 @@ create table detalles_pedido(
     foreign key (id_comida) references comidas (id_comida)
 );
 
+create table usuario_pedidos(
+	id_usuario_pedido int unsigned not null auto_increment unique,
+    id_usuario int unsigned not null,
+    id_pedido int unsigned not null,
+    
+    -- primary key
+    primary key (id_usuario_pedido),
+    -- foreign key
+    foreign key (id_usuario) references inf_usuarios (id_usuario),
+    foreign key (id_pedido) references pedidos (id_pedido)
+);
 -- Cobros
 /*
 create table cobros(
