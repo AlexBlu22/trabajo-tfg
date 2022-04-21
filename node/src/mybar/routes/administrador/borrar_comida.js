@@ -4,19 +4,19 @@ const express = require('express');
 const routes = express.Router();
 
 // ============================================================================== //
-// METODO POST 
+// METODO DELETE 
 // ============================================================================== //
 // Ruta [/]
 
-// Creacion de las comidas del bar
-routes.post('/', (req, res) =>{
+// Borrar un usuario
+routes.delete('/:id_comida', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
         
-        conn.query('INSERT INTO comidas set ?', [req.body], (err, rows)=>{
+        conn.query('DELETE FROM comidas WHERE id_comida = ?', [req.params.id_comida], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Comida agregada');
+            res.send('Comida eliminada');
         });
     });
 });

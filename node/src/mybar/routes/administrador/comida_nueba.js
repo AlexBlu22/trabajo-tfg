@@ -8,7 +8,7 @@ const routes = express.Router();
 // ============================================================================== //
 // Ruta [/]
 
-// Creacion de las comidas del bar
+// Agregar una nueva comida
 routes.post('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);

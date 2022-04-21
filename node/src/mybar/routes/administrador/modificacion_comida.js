@@ -8,7 +8,7 @@ const routes = express.Router();
 // ============================================================================== //
 // Ruta [/]
 
-// Modificacion del menu del bar
+// Modificar una comida
 routes.put('/:id_comida', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
@@ -16,7 +16,7 @@ routes.put('/:id_comida', (req, res)=>{
         conn.query('UPDATE comidas set ? WHERE id_comida = ?', [req.body, req.params.id_comida], (err, rows)=>{
             if(err) return res.send(err);
 
-            res.send('Bar modificado!');
+            res.send('Comida modificada!');
         });
     });
 });

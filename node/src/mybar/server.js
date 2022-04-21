@@ -74,9 +74,6 @@ app.use('/contenido_menu', require('./routes/contenido_menu'));
 // Ruta cartas [http://localhost:3000/cartas]
 app.use('/cartas', require('./routes/cartas'));
 
-// Ruta busqueda [http://localhost:3000/busqueda]
-app.use('/busqueda', require('./routes/busqueda'));
-
 
 
 
@@ -146,17 +143,30 @@ app.use('/bar/menu', require('./routes/bares/visualizacion_menu'));
 // ADMINISTRADOR
 // =============
 
+// Listado de las comidas
+// Ruta [http://localhost:3000/comida]
+app.use('/comida', require('./routes/administrador/listado_comidas'));
+
 // Creacion de las comidas de los bares
-// Ruta [http://localhost:3000/bar/edit_menu]
-app.use('/bar/comida_nueba', require('./routes/administrador/comida_nueba'));
+// Ruta [http://localhost:3000/comida/crear]
+app.use('/comida/crear', require('./routes/administrador/comida_nueba'));
 
 // Modificacion de las comidas de los bares
-// Ruta [http://localhost:3000/bar/edit_menu]
-app.use('/bar/edit_menu', require('./routes/administrador/modificacion_comida'));
+// Ruta [http://localhost:3000/comida/editar]
+app.use('/comida/editar', require('./routes/administrador/modificacion_comida'));
 
 // Borrar las comidas de los bares
-// Ruta [http://localhost:3000/bar/edit_menu]
-app.use('', require('./routes/administrador/borrar_comida'));
+// Ruta [http://localhost:3000/comida/borrar]
+app.use('/comida/borrar', require('./routes/administrador/borrar_comida'));
+
+
+// ===============
+// FUNCIONALIDADES
+// ===============
+
+// Busquedas
+// Ruta [http://localhost:3000/busqueda]
+app.use('/busqueda', require('./routes/funcionalidades/busqueda'));
 
 
 
