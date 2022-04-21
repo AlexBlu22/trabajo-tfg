@@ -99,7 +99,7 @@ insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (1, '2022-
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (2, '2022-4-27 12:30', 'no', 4);
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (3, '2022-4-28 12:30', 'si', 9);
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (4, '2022-4-29 12:30', 'si', 9);
-insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (5, '2022-4-30 12:30', 'si', 9);
+insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (5, '2022-4-30 12:30', 'si', 2);
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (6, '2022-5-1 12:30', 'si', 7);
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (7, '2022-5-2 12:30', 'no', 1);
 insert into pedidos (id_pedido, fecha_hora, preparado, id_bar) values (8, '2022-5-3 12:30', 'no', 7);
