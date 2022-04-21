@@ -53,3 +53,4 @@ SELECT tabla_bares.id_bar, tabla_bares.nombre, tabla_bares.direccion, tabla_bare
 	from pedidos left join tabla_bares on pedidos.id_bar = tabla_bares.id_bar 
 				 left join detalles_pedido on pedidos.id_pedido = detalles_pedido.id_pedido
                  left join comidas on detalles_pedido.id_comida = comidas.id_comida where tabla_bares.id_bar =1 ;
+		
