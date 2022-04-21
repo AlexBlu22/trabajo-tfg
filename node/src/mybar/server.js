@@ -141,16 +141,22 @@ app.use('/bar/edit_pedido', require('./routes/bares/modificacion_pedido_bar'));
 // Ruta [http://localhost:3000/bar/menu]
 app.use('/bar/menu', require('./routes/bares/visualizacion_menu'));
 
-// Modificacion de las comidas del bar
+
+// =============
+// ADMINISTRADOR
+// =============
+
+// Creacion de las comidas de los bares
 // Ruta [http://localhost:3000/bar/edit_menu]
-app.use('/bar/edit_menu', require('./routes/bares/modificacion_menu'));
+app.use('/bar/comida_nueba', require('./routes/administrador/comida_nueba'));
 
-// Creacion de las comidas del bar
+// Modificacion de las comidas de los bares
 // Ruta [http://localhost:3000/bar/edit_menu]
-app.use('/bar/comida_nueba', require('./routes/bares/comida_nueba'));
+app.use('/bar/edit_menu', require('./routes/administrador/modificacion_comida'));
 
-
-
+// Borrar las comidas de los bares
+// Ruta [http://localhost:3000/bar/edit_menu]
+app.use('', require('./routes/administrador/borrar_comida'));
 
 
 
