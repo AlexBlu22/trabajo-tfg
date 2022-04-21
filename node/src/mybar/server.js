@@ -76,3 +76,91 @@ app.use('/cartas', require('./routes/cartas'));
 
 // Ruta busqueda [http://localhost:3000/busqueda]
 app.use('/busqueda', require('./routes/busqueda'));
+
+
+
+
+
+// API ORGANIZADA
+
+// ========
+// SESIONES
+// ========
+
+// Creacion de sesiones [ usuarios/bar ]
+// Ruta [http://localhost:3000/sesion/creacion]
+app.use('/sesion/creacion', require('./routes/sesiones/creacion_de_usuarios'));
+
+
+// ========
+// USUARIOS
+// ========
+
+// Mostrar la informacion del usuario
+// Ruta [http://localhost:3000/usuario/informacion]
+app.use('/usuario/informacion', require('./routes/usuarios/informacion_del_usuario'));
+
+// Modificar la informacion del usuario
+// Ruta [http://localhost:3000/usuario/edit_informacion]
+app.use('/usuario/edit_informacion', require('./routes/usuarios/modificar_informacion_del_usuario'));
+
+// Mostrar los bares
+// Ruta [http://localhost:3000/bar/mostrar_bares]
+app.use('/bar/mostrar_bares', require('./routes/usuarios/visualizacion_bares'));
+
+// Crear pedido
+// Ruta [http://localhost:3000/bar/crear_pedido]
+app.use('/bar/crear_pedido', require('./routes/usuarios/crear_pedido'));
+
+// Visualizar pedidos del usuario
+// Ruta [http://localhost:3000/usuario/pedidos]
+app.use('/usuario/pedidos', require('./routes/usuarios/pedidos_usuario'));
+
+
+// =====
+// BARES
+// =====
+
+// Mostrar la informacion del bar
+// Ruta [http://localhost:3000/bar/informacion]
+app.use('/bar/informacion', require('./routes/bares/informacion_del_bar'));
+
+// Modificar la informacion del bar
+// Ruta [http://localhost:3000/bar/edit_informacion]
+app.use('/bar/edit_informacion', require('./routes/bares/modificacion_informacion_del_bar'));
+
+// Visualizar pedidos del bar
+// Ruta [http://localhost:3000/bar/pedidos]
+app.use('/bar/pedidos', require('./routes/bares/pedidos_bar'));
+
+// Modificar estado del pedidos
+// Ruta [http://localhost:3000/bar/edit_pedido]
+app.use('/bar/edit_pedido', require('./routes/bares/modificacion_pedido_bar'));
+
+// Mostrar menu del bar
+// Ruta [http://localhost:3000/bar/menu]
+app.use('/bar/menu', require('./routes/bares/visualizacion_menu'));
+
+// Modificacion de las comidas del bar
+// Ruta [http://localhost:3000/bar/edit_menu]
+app.use('/bar/edit_menu', require('./routes/bares/modificacion_menu'));
+
+// Creacion de las comidas del bar
+// Ruta [http://localhost:3000/bar/edit_menu]
+app.use('/bar/comida_nueba', require('./routes/bares/comida_nueba'));
+
+
+
+
+
+
+
+
+
+/*
+// Ruta [http://localhost:3000/]
+app.use('/bar', require('./routes/usuarios/creacion_de_usuarios'));
+
+// Ruta [http://localhost:3000/]
+app.use('/admin', require('./routes/usuarios/creacion_de_usuarios'));
+*/
