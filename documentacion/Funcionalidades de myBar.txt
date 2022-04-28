@@ -4,41 +4,38 @@ Funcionalidades de [ myBar ]
 
 	-- Antes de acceder a la pagina --
 
-		Creacion de usuarios
-			TIPO DE USUARIO [ EN LA PAGINA HABRA LOS TIPOS DE USUARIOS (CLIENTE '3', BAR'2')
-			 Y SERA UN DESPLEGABLE QUE SE SELECCIONARA Y CUANDO SE MANDE EN EL JSON SE MANDARA EL TIPO DE USUARIO ]
+		- Creacion de usuarios
 		Login
 
 	-- Una vez ya registrados en la pagina --
 
-		Visualizacion de la informacion del usuario
-			Aqui mostramos todos los registros que tiene el usuario como son
-			(usuario=Alejandro, contraseña=alex99, correo=alex@apo.com, tipo_usuario=cliente, permisos= 0010)
-		Modificacion de la informacion del usuario
-			Rectificaciones por parte del usuario de alguno de los campos
-		Visualizacion de los bares
-			Mostramos la informacion del bar nombre direccion y telefono de contacto
-		Visualizacion del menu del bar
-			Mostramos la informacion corespondiente al contenido del menu como son los productos
+		- Visualizacion de la informacion del usuario
+		- Modificacion de la informacion del usuario [ usuario, correo, contrasena ]
+		- Visualizacion de los bares
+		- Visualizacion del menu del bar
 		Creacion de pedido
-			Insertamos un pedido por medio de (id del pedido, fecha de peticion, estado del pedio en el preparado)
+		- Visualizacion del pedido, y del estado del pedido [ listo, no listo ]
 
 
 == Bares ==
 
 	-- Antes de acceder a la pagina --
 
-		Creacion de usuarios [ usuario bar ]
+		- Creacion de usuarios [ usuario bar ]
 		Login
 
 	-- Una vez ya registrados en la pagina --
 
-		Modificar la informacion del bar [ nombre, direccion y telefono ]
-		Creacion del menu
-		Modificacion del menu
-		Visualizacion de los pedidos
-		Editar el estado de los pedidos [ listo, no listo ]
+		- Visualizacion de la informacion del bar
+		- Modificar la informacion del bar [ nombre, direccion y telefono ]
+		- Visualizacion de los pedidos
+		- Modificar el estado de los pedidos [ listo, no listo ]
+		- Visualizar menu del bar
 
+		Anadir menu
+		Borrar menu
+		Anadir comidas al menu
+		Borrar comidas del menu
 
 == Administrador ==
 
@@ -48,4 +45,7 @@ Funcionalidades de [ myBar ]
 
 	-- Una vez ya registrados en la pagina --
 
-		Visualizar, modificar y borrar
+		- Visualizacion de las comidas
+		- Crear comidas
+		- Modificar comidas
+		- Borrar comidas

@@ -139,6 +139,21 @@ app.use('/bar/edit_pedido', require('./routes/bares/modificacion_pedido_bar'));
 app.use('/bar/menu', require('./routes/bares/visualizacion_menu'));
 
 
+
+
+
+
+// Crear nuevo menu
+// Ruta [http://localhost:3000/bar/menu_crear]
+app.use('/bar/menu_crear', require('./routes/bares/menu_nuevo'));
+
+
+
+
+
+
+
+
 // =============
 // ADMINISTRADOR
 // =============
