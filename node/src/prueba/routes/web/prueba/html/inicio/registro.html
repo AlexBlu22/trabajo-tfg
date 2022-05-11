@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS|JS -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" type="text/css" href="../../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/colores_mybar.css" />
+
+    <!-- Personal JS -->
+    <script src="../../js/...js"></script>
+
+    <!-- Titulo/logo WEB -->
+    <link rel="icon" type="image/png" href="../../image/logo/logo png/logo4.png" />
+    <title>myBar · Registrar</title>
+</head>
+
+<body class="text-center">
+
+    <main class="form-signin">
+        <!-- Logo|titulo -->
+        <a href="../html/...html">
+            <img class="mb-4" src="../../image/logo/logo png/logo3.png" alt="" width="150">
+        </a>
+        <h1 class="h3 mb-3 fw-normal">Registrar</h1>
+
+
+        <!-- Campos de registro -->
+        <form>
+            <div class="mb-3">
+
+                <!-- Nombre Usuario -->
+                <label for="inputUser" class="visually-hidden">Nombre de usuario</label>
+                <input type="email" id="inputUser" class="form-control" placeholder="Nombre de usuario" required
+                    autofocus>
+
+                <!-- Correo electronico -->
+                <label for="inputEmail" class="visually-hidden">Correo electrónico</label>
+                <input type="password" id="inputEmail" class="form-control" placeholder="Correo electrónico"
+                    required="password">
+
+                <!-- Contraseña -->
+                <label for="imputPassword" class="visually-hidden">Contraseña</label>
+                <input type="email" id="inputPassword" class="form-control" placeholder="Contraseña" required autofocus>
+
+                <!-- Repetir contraseña -->
+                <label for="repeatInputPassword" class="visually-hidden">Repetir contraseña</label>
+                <input type="password" id="repeatInputPassword" class="form-control" placeholder="Repetir contraseña"
+                    required="password">
+
+            </div>
+
+            <!-- Check condiciones -->
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="accpet-conditions" required> Acepto las <a
+                        href="../html/...html">Condiciones y Políticas de Privacidad</a> de la página web
+                </label>
+            </div>
+
+            <!-- Boton registrar -->
+            <button class="w-100 btn btn-lg mybar-background white" type="submit">Registrar</button>
+
+            <!-- Enlace -->
+            <a class="mt-1 mb-3 text-muted" href="../inicio/login.html">¿Ya tienes una cuenta creada? Entra aquí</a>
+
+            <!-- Pie -->
+            <p class="mt-5 mb-3 text-muted">&copy; myBar / 2022</p>
+        </form>
+    </main>
+
+</body>
+
+</html>
