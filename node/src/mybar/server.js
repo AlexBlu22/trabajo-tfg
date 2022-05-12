@@ -77,12 +77,14 @@ app.use('/cartas', require('./routes/cartas'));
 
 
 
-
 // API ORGANIZADA
 
 // ========
 // SESIONES
 // ========
+
+// Ruta [http://localhost:3000/sesiones/login]
+app.use('/sesiones/login', require('./routes/sesiones/login'));
 
 // Creacion de sesiones [ usuarios/bar ]
 // Ruta [http://localhost:3000/sesion/creacion]
