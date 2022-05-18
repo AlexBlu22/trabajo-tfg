@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon src/prueba/server.js",
+    "web": "nodemon src/prueba/web.js",
     "mybar": "nodemon src/mybar/server.js",
-    "web": "nodemon src/prueba/web.js"
+    "mybar.V2": "nodemon src/mybar/server.V2.js"
   },
   "keywords": [],
   "author": "",

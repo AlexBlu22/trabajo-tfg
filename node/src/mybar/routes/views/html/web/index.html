@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS|JS -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/colores_mybar.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+
+    <!-- Personal JS -->
+    <script src="./js/...js"></script>
+
+    <!-- Titulo/logo WEB -->
+    <link rel="icon" type="image/png" href="./image/logo/logo png/logo4.png" />
+    <title>myBar · Home</title>
+</head>
+
+<body>
+
+    <!-- Barra de titulo -->
+    <div class="px-3 py-2 mybar-background white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                    <p class="h1"><img class="" src="./image/logo/logo png/logo4.png" width="60" alt=""> myBar</p>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+
+                    <li>
+                        <a href="http://localhost:3000/myBar/login" class="nav-link text-white">
+                            <h6>Inicia sesion</h6>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" class="nav-link text-white disabled">
+                            <h6>Ayuda</h6>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" class="nav-link text-white disabled">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="" fill="currentColor"
+                                class="bi bi-menu-up" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.646 15.854a.5.5 0 0 0 .708 0L10.207 14H14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3.793l1.853 1.854zM1 9V6h14v3H1zm14 1v2a1 1 0 0 1-1 1h-3.793a1 1 0 0 0-.707.293l-1.5 1.5-1.5-1.5A1 1 0 0 0 5.793 13H2a1 1 0 0 1-1-1v-2h14zm0-5H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2zM2 11.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0-.5.5zm0-4a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11a.5.5 0 0 0-.5.5zm0-4a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 0-1h-6a.5.5 0 0 0-.5.5z" />
+                            </svg>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cuerpo de la pagina -->
+    <!-- Primer recuadro informativo -->
+    <div class="container my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+            <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <!-- Cabecera -->
+                <h1 class="display-4 fw-bold lh-1">Pide lo que te pidan tus amigos</h1>
+                <!-- Cuerpo -->
+                <p class="lead">Pide tu menu favorito acompañado de tus colegas antes de llegar a nuestros bares <br>
+                    Lo unico que tienes que hacer es crear tu cuenta y empezar a ver todos los bares que tienes cerca de ti
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <a href="http://localhost:3000/myBar/registro">
+                        <button type="button" class="btn btn-lg px-4 me-sm-3 mybar-background white">Registrate para empezar con nosotros</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+                <!-- Imagen -->
+                <img class="rounded-lg-3" src="./image/complementos/amigos.png" alt="" width="720">
+            </div>
+        </div>
+    </div>
+
+    <!-- Segundo recuadro informativo -->
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <!-- Cabecera -->
+        <h1 class="display-4 fw-bold">Reduerda que tenemos nuestra app</h1>
+        <div class="col-lg-6 mx-auto">
+            <!-- Cuerpo -->
+            <p class="lead mb-4">Y si no queres descargarte nuestra app, siempre puedes poner un enlace 
+                directo en tu movil a esta pagina, ya que la pagina esta optimizada para moviles</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                <a href="">
+                    <button type="button" class="btn btn-lg px-4 me-sm-3 mybar-background white">Descarga la app</button>
+                </a>
+            </div>
+        </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+            <div class="container px-5">
+                <!-- Imagen -->
+                <img src="./image/complementos/otros/apps_promo-wide-je.png" class="img-fluid rounded-3 shadow-lg mb-4" alt="Example image"
+                    width="700" height="500" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de pagina -->
+    <div class="container">
+        <footer class="footer d-flex justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; myBar / 2022</p>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            </ul>
+        </footer>
+    </div>
+
+</body>
