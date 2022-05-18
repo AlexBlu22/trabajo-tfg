@@ -1,4 +1,4 @@
-// Ruta [http://localhost:3000/usuarios/informacion]
+// Ruta [http://localhost:3000/usuarios/informacion_del_usuario]
 
 const express = require('express');
 const routes = express.Router();

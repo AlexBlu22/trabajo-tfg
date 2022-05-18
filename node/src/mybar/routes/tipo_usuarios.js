@@ -9,7 +9,7 @@ const routes = express.Router();
 // ============================================================================== //
 // Ruta [/]
 
-// Obtener todos los tipos de usuarios
+// Obtener todos los tipos de usuarios (mostrar todos los tipos de usuarios)
 routes.get('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
@@ -22,7 +22,7 @@ routes.get('/', (req, res) =>{
     });
 });
 
-// Obtener un unico tipo de usuario
+// Obtener un unico tipo de usuario (mostrar un tipo de usuario)
 routes.get('/:id_tipo_usuario', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
@@ -41,7 +41,7 @@ routes.get('/:id_tipo_usuario', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Agregar un nuevo tipo de usuario
+// Agregar un nuevo tipo de usuario (agregar tipo de usuario)
 routes.post('/', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
@@ -60,7 +60,7 @@ routes.post('/', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Borrar un tipo de usuario
+// Borrar un tipo de usuario (borrar tipo de usuario)
 routes.delete('/:id_tipo_usuario', (req, res) =>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);
@@ -79,7 +79,7 @@ routes.delete('/:id_tipo_usuario', (req, res) =>{
 // ============================================================================== //
 // Ruta [/]
 
-// Modificar un tipo de usuario
+// Modificar un tipo de usuario (modificar tipo de usuario)
 routes.put('/:id_tipo_usuario', (req, res)=>{
     req.getConnection((err, conn)=>{
         if(err) return res.send(err);

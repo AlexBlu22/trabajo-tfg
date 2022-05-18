@@ -14,9 +14,11 @@
   "dependencies": {
     "express": "^4.17.3",
     "express-myconnection": "^1.0.4",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
+    "json-server": "^0.17.0",
     "nodemon": "^2.0.15"
   }
 }

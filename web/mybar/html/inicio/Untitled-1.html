@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <title>Hello</title>
+
+</head>
+
+<body>
+    <div class="container my-5 text-center">
+      <button class=""btn btn-danger w-100" onclick="traer()">Obtener</button>
+      <div class="mt-5" id="contenido">
+
+      </div>
+    </div>
+
+<script>
+
+   function traer() {
+
+        fetch('http://localhost:3000/sesiones/login/pp@gmail.com', {mode:'no-cors'})
+          .then(res => res.json())
+          .then(data => console.log(data) )
+ 
+        /* var sURL2 = "https://randomuser.me/api/";
+           fetch( sURL2 )
+          .then(res => res.json())
+          .then(data => console.log(data) )*/
+
+    /*var sURL1 = "http://localhost:3000/sesiones/login/pp@gmail.com";
+    var peticionHTTP = fetch( sURL1, myInit );
+    peticionHTTP
+      .then((respuesta) => {
+           if (respuesta.ok) {
+               respuesta => respuesta.json();
+               data => console.log(data);
+           } else throw new Error("Invocacion al servicio WEB -Return not ok");
+      })*/
+
+    } 
+
+</script>
+
+</body>
+

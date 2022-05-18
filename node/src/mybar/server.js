@@ -82,13 +82,12 @@ app.use('/cartas', require('./routes/cartas'));
 // ========
 // SESIONES
 // ========
-
 // Ruta [http://localhost:3000/sesiones/login]
 app.use('/sesiones/login', require('./routes/sesiones/login'));
 
 // Creacion de sesiones [ usuarios/bar ]
-// Ruta [http://localhost:3000/sesion/creacion]
-app.use('/sesion/creacion', require('./routes/sesiones/creacion_de_usuarios'));
+// Ruta [http://localhost:3000/sesiones/creacion_de_usuarios]
+app.use('/sesiones/creacion_de_usuarios', require('./routes/sesiones/creacion_de_usuarios'));
 
 
 // ========
@@ -96,8 +95,8 @@ app.use('/sesion/creacion', require('./routes/sesiones/creacion_de_usuarios'));
 // ========
 
 // Mostrar la informacion del usuario
-// Ruta [http://localhost:3000/usuario/informacion]
-app.use('/usuario/informacion', require('./routes/usuarios/informacion_del_usuario'));
+// Ruta [http://localhost:3000/usuarios/informacion_del_usuario]
+app.use('/usuarios/informacion_del_usuario', require('./routes/usuarios/informacion_del_usuario'));
 
 // Modificar la informacion del usuario
 // Ruta [http://localhost:3000/usuario/edit_informacion]
@@ -112,8 +111,8 @@ app.use('/bar/mostrar_bares', require('./routes/usuarios/visualizacion_bares'));
 app.use('/bar/crear_pedido', require('./routes/usuarios/crear_pedido'));
 
 // Visualizar pedidos del usuario
-// Ruta [http://localhost:3000/usuario/pedidos]
-app.use('/usuario/pedidos', require('./routes/usuarios/pedidos_usuario'));
+// Ruta [http://localhost:3000/usuarios/pedidos]
+app.use('/usuarios/pedidos', require('./routes/usuarios/pedidos_usuario'));
 
 
 // =====

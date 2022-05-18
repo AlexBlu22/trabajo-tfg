@@ -30,9 +30,6 @@
     <link rel="stylesheet" type="text/css" href="../../css/colores_mybar.css" />
     <link rel="stylesheet" type="text/css" href="../../css/login.css" />
 
-    <!-- Personal JS -->
-    <script src="../../js/...js"></script>
-
     <!-- Titulo/logo WEB -->
     <link rel="icon" type="image/png" href="../../image/logo/logo png/logo4.png" />
     <title>myBar · Entrar</title>
@@ -52,24 +49,70 @@
         <form>
             <!-- Correo electronico -->
             <label for="inputEmail" class="visually-hidden">Correo electrónico</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required
-                autofocus>
+            <input id="inputEmail" class="form-control" placeholder="Correo electrónico" autofocus>
 
             <!-- Contraseña -->
             <label for="inputPassword" class="visually-hidden">Contraseña</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+            <input id="inputPassword" class="form-control" placeholder="Contraseña" >
 
             <!-- Boton entrar -->
-            <button class="w-100 btn btn-lg mybar-background white" type="submit">Entrar</button>
+            <button class="w-100 btn btn-lg mybar-background white" onclick="displayMessage()">Entrar</button>
+            
 
             <!-- Enlace -->
-            <a class="mt-1 mb-3 text-muted" href="../inicio/registro.html">¿Todavía no tienes una cuenta? Crea una
-                nueva</a>
+            <a class="mt-1 mb-3 text-muted" href="../inicio/registro.html">¿Todavía no tienes una cuenta? Crea una nueva</a>
 
             <!-- Pie -->
             <p class="mt-5 mb-3 text-muted">&copy; myBar / 2022</p>
         </form>
     </main>
+
+<script>
+    function displayMessage(){
+         var eMail = document.getElementById('inputEmail').value;
+         var Passw = document.getElementById('inputPassword').value;
+         //alert( eMail );
+         if (eMail == "" ) {
+            alert("Usuario no indicado");
+         } else {
+            ObtenerDatos();
+         }
+    }
+
+    function ObtenerDatos(){
+        var eMail = document.getElementById('inputEmail')
+        //var sCadenaInvocacionServlet = "http://localhost:3000/login/" + eMail.value;
+        var sCadenaInvocacionServlet = "https://randomuser.me/api/";
+
+        //alert("Invocación al servicio web: " + sCadenaInvocacionServlet );
+        console.log(sCadenaInvocacionServlet);
+
+        //, { method: 'GET', mode: 'no-cors' }
+        fetch( sCadenaInvocacionServlet  )
+        .then( console.log(".....") )
+        .then( response => response.json())
+        .then( response => {
+               console.log(response)
+        })
+        .then( console.log("_____"))
+        .catch( err => console.error(err));
+
+        //const myIP = '';
+        //const endPoint = sCadenaInvocacionServlet;
+        //console.log( endPoint);
+
+        //fetch(endPoint, { method: 'GET', mode: 'no-cors' })
+        //.then(request => request.text())
+        //.then(printData => {
+        //         console.log(printData)
+        //});
+
+        console.log("Resultado invocación al servicio WEB ....");
+        //alert("Resultado invocación al servicio WEB ....")
+
+    }
+
+</script>
 
 </body>
 

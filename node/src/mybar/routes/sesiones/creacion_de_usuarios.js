@@ -1,4 +1,4 @@
-// Ruta [http://localhost:3000/sesion/creacion]
+// Ruta [http://localhost:3000/sesiones/creacion]
 
 const express = require('express');
 const routes = express.Router();
