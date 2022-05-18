@@ -13,38 +13,38 @@
 
 <body>
     <div class="container my-5 text-center">
-      <button class=""btn btn-danger w-100" onclick="traer()">Obtener</button>
-      <div class="mt-5" id="contenido">
+        <button class="" btn btn-danger w-100" onclick="traer()">Obtener</button>
+        <div class="mt-5" id="contenido">
 
-      </div>
+        </div>
     </div>
 
-<script>
+    <script>
 
-   function traer() {
+        function traer() {
 
-        fetch('http://localhost:3000/sesiones/login/pp@gmail.com', {mode:'no-cors'})
-          .then(res => res.json())
-          .then(data => console.log(data) )
- 
-        /* var sURL2 = "https://randomuser.me/api/";
-           fetch( sURL2 )
-          .then(res => res.json())
-          .then(data => console.log(data) )*/
+            /*fetch('http://localhost:3000/sesiones/login/pp@gmail.com', { mode: 'no-cors' })
+                .then(res =>res.json())
+                .then(data =>console.log(data)) */
 
-    /*var sURL1 = "http://localhost:3000/sesiones/login/pp@gmail.com";
-    var peticionHTTP = fetch( sURL1, myInit );
-    peticionHTTP
-      .then((respuesta) => {
-           if (respuesta.ok) {
-               respuesta => respuesta.json();
-               data => console.log(data);
-           } else throw new Error("Invocacion al servicio WEB -Return not ok");
-      })*/
 
-    } 
+           var sURL2 = "https://randomuser.me/api/";
+               fetch( sURL2 )
+              .then(res => res.json())
+              .then(data => console.log(data) )
 
-</script>
+            /*var sURL1 = "http://localhost:3000/sesiones/login/pp@gmail.com";
+            var peticionHTTP = fetch( sURL1, myInit );
+            peticionHTTP
+              .then((respuesta) => {
+                   if (respuesta.ok) {
+                       respuesta => respuesta.json();
+                       data => console.log(data);
+                   } else throw new Error("Invocacion al servicio WEB -Return not ok");
+              })*/
+
+        }
+
+    </script>
 
 </body>
-

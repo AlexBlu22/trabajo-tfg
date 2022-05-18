@@ -15,8 +15,11 @@ routes.get('/:id_usuario', (req, res) =>{
 
         conn.query('select inf_usuarios.id_usuario, inf_usuarios.usuario, inf_usuarios.correo, inf_usuarios.contrasena, tipo_usuarios.id_tipo_usuario, tipo_usuarios.tipo_usuario, permisos.id_permiso, permisos.permiso from inf_usuarios left join tipo_usuarios on inf_usuarios.id_tipo_usuario = tipo_usuarios.id_tipo_usuario left join permisos on tipo_usuarios.id_tipo_usuario = permisos.id_permiso WHERE id_usuario = ?', [req.params.id_usuario], (err, rows)=>{
             if(err) return res.send(err);
-
-            res.json(rows);
+            let resultados = {
+                result: rows,
+         }
+         
+         res.json(resultados);
         });
     });
 });

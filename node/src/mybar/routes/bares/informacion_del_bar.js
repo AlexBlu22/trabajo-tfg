@@ -15,8 +15,11 @@ routes.get('/:id_bar', (req, res) =>{
 
         conn.query('SELECT * FROM tabla_bares WHERE id_bar = ?', [req.params.id_bar], (err, rows)=>{
             if(err) return res.send(err);
-
-            res.json(rows);
+            let resultados = {
+                result: rows,
+         }
+         
+         res.json(resultados);
         });
     });
 }); 

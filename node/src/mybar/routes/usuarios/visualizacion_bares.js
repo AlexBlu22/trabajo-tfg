@@ -15,8 +15,11 @@ routes.get('/', (req, res) =>{
 
         conn.query('SELECT * FROM tabla_bares', (err, rows)=>{
             if(err) return res.send(err);
-
-            res.json(rows);
+            let resultados = {
+                result: rows,
+         }
+         
+         res.json(resultados);
         });
     });
 });

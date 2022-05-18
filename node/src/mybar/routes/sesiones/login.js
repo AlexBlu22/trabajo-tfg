@@ -15,7 +15,12 @@ routes.get('/:usuario', (req, res) =>{
 
         conn.query('select inf_usuarios.id_usuario, inf_usuarios.usuario, inf_usuarios.correo, inf_usuarios.contrasena from inf_usuarios  WHERE usuario = ?', [req.params.usuario], (err, rows)=>{
             if(err) return res.send(err);
-            res.json(rows);
+            let resultados = {
+                result: rows,
+         }
+         
+         res.json(resultados);
+            //res.write(resultados);
         });
     });
 });

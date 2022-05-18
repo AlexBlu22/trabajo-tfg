@@ -9,7 +9,18 @@ const routes = express.Router();
 // Ruta [/]
 
 // Crear pedido
+// Agregar un nuevo pedido
+routes.post('/', (req, res) =>{
+    req.getConnection((err, conn)=>{
+        if(err) return res.send(err);
+        
+        conn.query('INSERT INTO pedidos set ?', [req.body], (err, rows)=>{
+            if(err) return res.send(err);
 
+            res.send('Pedido agregado');
+        });
+    });
+});
 
 
 module.exports = routes

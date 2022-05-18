@@ -16,8 +16,11 @@ routes.get('/usuario/nombre/:usuario', (req, res) =>{
 
         conn.query('SELECT * FROM inf_usuarios WHERE usuario = ?', [req.params.usuario], (err, rows)=>{
             if(err) return res.send(err);
-
-            res.json(rows);
+            let resultados = {
+                result: rows,
+         }
+         
+         res.json(resultados);
         });
     });
 });
@@ -29,8 +32,11 @@ routes.get('/usuario/correo/:correo', (req, res) =>{
 
         conn.query('SELECT * FROM inf_usuarios WHERE correo = ?', [req.params.correo], (err, rows)=>{
             if(err) return res.send(err);
-
-            res.json(rows);
+            let resultados = {
+                result: rows,
+         }
+         
+         res.json(resultados);
         });
     });
 });
