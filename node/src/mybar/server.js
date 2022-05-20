@@ -13,7 +13,14 @@ app.use(express.static(__dirname + "/routes/web/prueba/public"));
 // ============================================================================== //
 // SETTINGS
 // ============================================================================== //
+
+app.set({
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Credentials" : true
+});
 app.set('port', process.env.PORT || 3000);
+app.set('json spaces', 2);
 
 const dbOpscions = {
     host: 'localhost',
@@ -28,6 +35,7 @@ const dbOpscions = {
 // ============================================================================== //
 app.use(myconn(mysql, dbOpscions, 'single'));
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 
 // ============================================================================== //

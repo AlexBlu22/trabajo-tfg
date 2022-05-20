@@ -20,7 +20,6 @@ routes.get('/:usuario', (req, res) =>{
          }
          
          res.json(resultados);
-            //res.write(resultados);
         });
     });
 });
