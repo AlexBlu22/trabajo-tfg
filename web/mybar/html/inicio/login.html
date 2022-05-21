@@ -33,20 +33,20 @@
     <!-- Titulo/logo WEB -->
     <link rel="icon" type="image/png" href="../../image/logo/logo png/logo4.png" />
     <title>myBar · Entrar</title>
+    
 </head>
 
 <body class="text-center">
 
     <main class="form-signin">
         <!-- Logo|titulo -->
-        <a href="../html/...html">
+        <a href="../web/index.html">
             <img class="mb-4" src="../../image/logo/logo png/logo3.png" alt="" width="150">
         </a>
         <h1 class="h3 mb-3 fw-normal">Inicia sesion</h1>
 
 
         <!-- Campos de registro -->
-        <form>
             <!-- Correo electronico -->
             <label for="inputEmail" class="visually-hidden">Correo electrónico</label>
             <input id="inputEmail" class="form-control" placeholder="Correo electrónico" autofocus>
@@ -56,60 +56,152 @@
             <input id="inputPassword" class="form-control" placeholder="Contraseña" >
 
             <!-- Boton entrar -->
-            <button class="w-100 btn btn-lg mybar-background white" onclick="displayMessage()">Entrar</button>
-            
+            <button class="w-100 btn btn-lg mybar-background white" onclick="fVerificarUsurioYPassword()">Entrar</button>
 
             <!-- Enlace -->
             <a class="mt-1 mb-3 text-muted" href="../inicio/registro.html">¿Todavía no tienes una cuenta? Crea una nueva</a>
 
             <!-- Pie -->
             <p class="mt-5 mb-3 text-muted">&copy; myBar / 2022</p>
-        </form>
+
+            <p style="color: red" id="CajaMensajes"></p>
     </main>
 
 <script>
-    function displayMessage(){
-         var eMail = document.getElementById('inputEmail').value;
-         var Passw = document.getElementById('inputPassword').value;
-         //alert( eMail );
-         if (eMail == "" ) {
-            alert("Usuario no indicado");
-         } else {
-            ObtenerDatos();
-         }
+
+    function fVerificarUsurioYPassword(){
+
+        var sUser = document.getElementById('inputEmail').value;
+        var sPassw = document.getElementById('inputPassword').value;
+        if (sUser == "" || sPassw == "" ) {
+           //alert("Usuario o password no indicado correctamente ...");
+           document.getElementById("CajaMensajes").innerHTML = "Usuario o password no indicado correctamente ...";
+        } else {
+            fObtenerDatos();
+        }
+
     }
 
-    function ObtenerDatos(){
-        var eMail = document.getElementById('inputEmail')
-        //var sCadenaInvocacionServlet = "http://localhost:3000/login/" + eMail.value;
-        var sCadenaInvocacionServlet = "https://randomuser.me/api/";
+    function fObtenerDatos() {
+
+        let sUser = document.getElementById('inputEmail')
+        let sCadenaInvocacionServlet = "http://localhost:3000/login/" + sUser.value;
 
         //alert("Invocación al servicio web: " + sCadenaInvocacionServlet );
-        console.log(sCadenaInvocacionServlet);
+        //alert( sCadenaInvocacionServlet );
 
-        //, { method: 'GET', mode: 'no-cors' }
-        fetch( sCadenaInvocacionServlet  )
-        .then( console.log(".....") )
-        .then( response => response.json())
-        .then( response => {
-               console.log(response)
-        })
-        .then( console.log("_____"))
-        .catch( err => console.error(err));
+        // Simular obtener datos de la APIRest
+        let vJsonDatos = {
+            "result": [
+              {
+                "id_usuario": 10,
+                "usuario": "pp@gmail.com",
+                "correo": "pp@gmail.com",
+                "contrasena": "59898-401"
+              }                ]
+          };
+          let vJsonDatos2 = {
+            "result": [  
+            ]
+          }
+   
+          let vJsonIdentificado = {
+            "result": [
+              {
+                "id_usuario": 10,
+                "usuario": "pp@gmail.com",
+                "correo": "pp@gmail.com",
+                "contrasena": "61601-1120",
+                "id_tipo_usuario": 1,
+                "tipo_usuario": "Administrador",
+                "id_permiso": 1,
+                "permiso": "1111"
+              }
+            ]
+          }
+          let vJsonIdentificado2 = {
+            "result": [  
+            ]
+          }
 
-        //const myIP = '';
-        //const endPoint = sCadenaInvocacionServlet;
-        //console.log( endPoint);
 
-        //fetch(endPoint, { method: 'GET', mode: 'no-cors' })
-        //.then(request => request.text())
-        //.then(printData => {
-        //         console.log(printData)
-        //});
+        //fetch( sCadenaInvocacionServlet  )
+        //.then( console.log(".....") )
+        //.then( response => response.json())
+        //.then( response => {
+        //       console.log(response)
+        //})
+        //.then( console.log("_____"))
+        //.catch( err => console.error(err));
 
-        console.log("Resultado invocación al servicio WEB ....");
-        //alert("Resultado invocación al servicio WEB ....")
+          //alert( vJsonDatos.result.length );
+          if( vJsonDatos.result.length > 0 ) {
 
+              //alert( "Usuario: " + vJsonDatos.result[0].usuario );
+              //alert( "Usuario: " + vJsonDatos.result[0].id_usuario );
+           
+              sCadenaInvocacionServlet = "http://localhost:3000/usuarios/informacion_del_usuario/" + vJsonDatos.result[0].id_usuario;
+              //alert( sCadenaInvocacionServlet );
+
+              //fetch( sCadenaInvocacionServlet  )
+              //.then( console.log(".....") )
+              //.then( response => response.json())
+              //.then( response => {
+              //       console.log(response)
+              //})
+              //.then( console.log("_____"))
+              //.catch( err => console.error(err)); 
+
+              //alert( vJsonIdentificado.result.length );
+              if( vJsonIdentificado.result.length > 0 ) {
+
+                  console.log( vJsonIdentificado.result[0].usuario );
+                  //alert( "Usuario: " + vJsonIdentificado.result[0].usuario );
+                  //alert( "id_usuario: " + vJsonIdentificado.result[0].id_usuario );
+                  //alert( "Tipo usuario: " + vJsonIdentificado.result[0].id_tipo_usuario );
+
+                  let nTipoUsuario = vJsonIdentificado.result[0].id_tipo_usuario;
+                  document.getElementById("CajaMensajes").innerHTML = "cargando pargina web ....";
+
+                  if( nTipoUsuario == 1 ){
+                      // ir a WEB Administrador
+
+                         //alert( "ir a WEB con perfil administrador .... ");
+                         let sNewURL = "http://127.0.0.1:5500/web/mybar/html/administrador/administrador.html";
+                         fCargaURL( sNewURL );
+
+                  } else if ( nTipoUsuario == 2 ) {
+                      // ir a WEB Camarero
+                         //alert( "ir a WEB con perfil camarero .... ");
+                         window.location="http://127.0.0.1:5500/web/mybar/html/bar/bar.V2.html";
+                         
+                  } else if ( nTipoUsuario == 3) {
+                      // ir a WEB Cliente
+                         //alert( "ir a WEB con perfil cliente .... ");
+                         window.location="http://127.0.0.1:5500/web/mybar/html/cliente/cliente.V2.html";
+
+                  }
+
+            } else {
+              //alert( "Usuario sin datos de tipo usuario ..." );
+              document.getElementById("CajaMensajes").innerHTML = "Usuario sin datos de tipo usuario ...";
+
+            }
+
+            } else {
+              //alert( "Usuario no identificado ..." );
+              document.getElementById("CajaMensajes").innerHTML = "Usuario no identificado ...";
+            }
+
+    }
+
+    /* parte que edita el cliente */
+    function fCargaURL(sCargarNewURl) {
+        //alert(window.location.href);
+        //alert(window.location.hostname);
+        //alert(window.location.protocol);
+        //alert(window.location.assign);
+        window.location.href = sCargarNewURl;
     }
 
 </script>

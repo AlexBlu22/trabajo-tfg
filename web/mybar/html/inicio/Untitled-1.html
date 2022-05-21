@@ -13,7 +13,7 @@
 
 <body>
     <div class="container my-5 text-center">
-        <button class="" btn btn-danger w-100" onclick="traer()">Obtener</button>
+        <button class="btn btn-danger w-100" onclick="traer()">Obtener</button>
         <div class="mt-5" id="contenido">
 
         </div>
@@ -23,28 +23,56 @@
 
         function traer() {
 
-            fetch('http://localhost:3000/sesiones/login/pp@gmail.com', { mode: 'no-cors' })
-                .then(res =>res.json())
-                .then(data =>console.log(data))
+            //fetch('http://localhost:3000/sesiones/login/pp@gmail.com', { mode: 'no-cors' })
+            //    .then(res =>res.json())
+            //    .then(data =>console.log(data))
 
+            let vJson = {
+                "result": [
+                  {
+                    "id_usuario": 10,
+                    "usuario": "pp@gmail.com",
+                    "correo": "pp@gmail.com",
+                    "contrasena": "59898-401"
+                  }                ]
+              };
+            let vJson2 = {
+                "result": [  
+                ]
+              }
 
-           /*var sURL2 = "https://randomuser.me/api/";
-               fetch( sURL2 )
-              .then(res => res.json())
-              .then(data => console.log(data) )*/
+            //console.log( vJson.result );
+            //console.log( vJson.result[0] );
+            //console.log( vJson.result[0].usuario );
 
-            /*var sURL1 = "http://localhost:3000/sesiones/login/pp@gmail.com";
-            var peticionHTTP = fetch( sURL1, myInit );
-            peticionHTTP
-              .then((respuesta) => {
-                   if (respuesta.ok) {
-                       respuesta => respuesta.json();
-                       data => console.log(data);
-                   } else throw new Error("Invocacion al servicio WEB -Return not ok");
-              })*/
+            console.log( vJson.result.length );
+            if( vJson.result.length > 0 ) {
+                console.log( vJson.result[0].usuario );
+                let sNewURL = "../administrador/administrador.html";
+                fCargaURL( sNewURL );
+            } else {
+                console.log( "Sin datos")
+            }
+
+            //console.log( vJson2.result );
+            console.log( vJson2.result.length );
+            if( vJson2.result.length > 0 ) {
+                console.log( vJson2.result[0].usuario );
+            } else {
+                console.log( "Sin datos")
+            }
 
         }
+
+    /* parte que edita el cliente */
+       function fCargaURL(sCargarNewURl) {
+           //alert( sCargarNewURl );
+
+           window.location.href = sCargarNewURl;
+       }
 
     </script>
 
 </body>
+
+</html>
