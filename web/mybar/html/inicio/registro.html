@@ -49,7 +49,6 @@
 
 
         <!-- Campos de registro -->
-        <form>
             <div class="mb-3">
 
                 <!-- Nombre Usuario -->
@@ -59,11 +58,11 @@
 
                 <!-- Correo electronico -->
                 <label for="inputEmail" class="visually-hidden">Correo electrónico</label>
-                <input type="password" id="inputEmail" class="form-control" placeholder="Correo electrónico"
+                <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico"
                     required="password">
 
                 <!-- Contraseña -->
-                <label for="imputPassword" class="visually-hidden">Contraseña</label>
+                <label for="inputPassword" class="visually-hidden">Contraseña</label>
                 <input type="email" id="inputPassword" class="form-control" placeholder="Contraseña" required autofocus>
 
                 <!-- Repetir contraseña -->
@@ -76,21 +75,70 @@
             <!-- Check condiciones -->
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" value="accpet-conditions" required> Acepto las <a
+                    <input type="checkbox" id="checkcondiciones" value="accpet-conditions" required> Acepto las <a
                         href="../html/...html">Condiciones y Políticas de Privacidad</a> de la página web
                 </label>
             </div>
 
             <!-- Boton registrar -->
-            <button class="w-100 btn btn-lg mybar-background white" type="submit">Registrar</button>
+            <button class="w-100 btn btn-lg mybar-background white" onclick="fVerificarAltaUsuario()">Registrar</button>
 
             <!-- Enlace -->
             <a class="mt-1 mb-3 text-muted" href="../inicio/login.html">¿Ya tienes una cuenta creada? Entra aquí</a>
 
             <!-- Pie -->
             <p class="mt-5 mb-3 text-muted">&copy; myBar / 2022</p>
-        </form>
+
+            <p style="color: red" id="CajaMensajes"></p>
+
     </main>
+
+<script>
+
+    function fVerificarAltaUsuario(){
+
+        let sUser = document.getElementById('inputUser').value;
+        let sEMail = document.getElementById('inputEmail').value;
+        let sPass = document.getElementById('inputPassword').value;
+        let sRepeatPass = document.getElementById('repeatInputPassword').value;
+        let miCheckbox = document.getElementById('checkcondiciones');
+        let bCrearUsuario = true;
+
+        if (sUser == "" ) {
+            document.getElementById("CajaMensajes").innerHTML = "Usuario no indicado ...";
+            bCrearUsuario = false;
+        } else if (sEMail == "" ) {
+            document.getElementById("CajaMensajes").innerHTML = "eMail no indicado ...";
+            bCrearUsuario = false;
+        } else if (sPass == "" ) {
+            document.getElementById("CajaMensajes").innerHTML = "Password no indicada ...";
+            bCrearUsuario = false;
+        } else if (sPass != sRepeatPass ) {
+            document.getElementById("CajaMensajes").innerHTML = "Verificación de la password incorrecta ...";
+            bCrearUsuario = false;
+        } else if (!miCheckbox.checked) {
+            document.getElementById("CajaMensajes").innerHTML = "Se deben aceptar las condiciones y políticas de privacidad ...";
+            bCrearUsuario = false;
+        }
+
+        if ( bCrearUsuario ) {
+            document.getElementById("CajaMensajes").innerHTML = "Procedemos a dar de alta el usuario ... "; 
+            window.location="http://127.0.0.1:5500/web/mybar/html/cliente/cliente.V2.html";
+
+              //fetch( sCadenaInvocacionServlet  )
+              //.then( console.log(".....") )
+              //.then( response => response.json())
+              //.then( response => {
+              //       console.log(response)
+              //})
+              //.then( console.log("_____"))
+              //.catch( err => console.error(err)); 
+
+        }
+
+    }
+    
+</script>
 
 </body>
 

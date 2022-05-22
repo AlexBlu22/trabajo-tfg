@@ -52,7 +52,7 @@
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
 
                     <li>
-                        <a href="bar.html" class="nav-link text-white">
+                        <a href="administrador.html" class="nav-link text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="" fill="currentColor"
                                 class="bi bi-reply-fill" viewBox="0 0 16 16">
                                 <path
@@ -72,34 +72,32 @@
         <a href="javascript: history.go(-1)"><h1 class="p-2 bd-highlight"><i class="bi bi-arrow-left"></i></h1></a>
         <h1>Añadir comidas</h1>
   
-        <form class="row mt-3" name="formCliente" id="idFormCliente">
           <div class="row">
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label for="idfirstName" class="form-label">Nombre del producto</label>
-              <input type="text" class="form-control" id="idfirstName" name="firstName" required />
+              <label for="idproducto" class="form-label">Nombre del producto</label>
+              <input type="text" class="form-control" id="idproducto" name="producto" required />
             </div>
             <div class="col-md-4">
-              <label for="idlastName" class="form-label">Precio</label>
-              <input type="text" class="form-control" id="idlastName" name="lastName" required />
+              <label for="idprecio" class="form-label">Precio</label>
+              <input type="text" class="form-control" id="idprecio" name="precio" required />
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label for="idcompany" class="form-label">Alergenos</label>
-              <input type="text" class="form-control" id="idcompany" name="company" required />
+              <label for="idalergenos" class="form-label">Alergenos</label>
+              <input type="text" class="form-control" id="idalergenos" name="alergenos" required />
             </div>
           </div>
             <div class="col-md-4">
           </div>
           <div class="row mt-3">
             <div class="col-12">
-              <button id="idSalvar" type="submit" disabled class="col-4 btn btn-primary">Añadir producto</button>
-              <button id="idCancel" class="col-2 btn btn-warning">Cancelar</button>
+              <button id="idSalvar" class="col-4 btn btn-primary" onclick="fVerificarAltaProducto()">Añadir producto</button>
+              <button id="idCancel" class="col-2 btn btn-warning" onclick="fCancelarAltaProducto()">Cancelar</button>
             </div>
           </div>
-        </form>
   
         <!-- Modal para mensajes -->
         <div class="modal" id="idModal" tabindex="-1">
@@ -119,6 +117,9 @@
             </div>
           </div>
         </div>
+
+        <p style="color: red" id="CajaMensajes"></p>
+
       </div>
   
       <script src="js/editCliente.js"></script>
@@ -138,5 +139,52 @@
             </ul>
         </footer>
     </div>
+
+  
+    <script>
+
+      function fVerificarAltaProducto(){
+  
+          let sProducto = document.getElementById('idproducto').value;
+          let sPrecio = document.getElementById('idprecio').value;
+          let sAlergenos = document.getElementById('idalergenos').value;
+          let bCrearUsuario = true;
+  
+          if (sProducto == "" ) {
+              document.getElementById("CajaMensajes").innerHTML = "Producto no indicado ...";
+              bCrearUsuario = false;
+          } else if (sPrecio == "" ) {
+              document.getElementById("CajaMensajes").innerHTML = "Precio no indicado ...";
+              bCrearUsuario = false;
+          } else if (sAlergenos == "" ) {
+              document.getElementById("CajaMensajes").innerHTML = "Alergenos no indicada ...";
+              bCrearUsuario = false;
+          } 
+  
+          if ( bCrearUsuario ) {
+              document.getElementById("CajaMensajes").innerHTML = "Procedemos a dar de alta el producto ... "; 
+              window.location="http://127.0.0.1:5500/web/mybar/html/administrador/administrador.html";
+  
+                //fetch( sCadenaInvocacionServlet  )
+                //.then( console.log(".....") )
+                //.then( response => response.json())
+                //.then( response => {
+                //       console.log(response)
+                //})
+                //.then( console.log("_____"))
+                //.catch( err => console.error(err)); 
+  
+          }
+  
+      }
+
+      function fCancelarAltaProducto(){
+        document.getElementById('idproducto').value = "";
+        document.getElementById('idprecio').value  = "";
+        document.getElementById('idalergenos').value  = "";
+        document.getElementById("CajaMensajes").innerHTML = "";
+    } 
+      
+  </script>
 
 </body>
