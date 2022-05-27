@@ -6,6 +6,7 @@ const mysql = require('mysql');
 const myconn = require('express-myconnection');
 const req = require('express/lib/request');
 const path = require('path');
+const cors = require('cors');
 
 app.use(express.static(__dirname + "/routes/web/prueba/public"));
 
@@ -16,9 +17,17 @@ app.use(express.static(__dirname + "/routes/web/prueba/public"));
 
 app.set({
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Credentials" : true
+    //"Access-Control-Allow-Origin": "*",
+    //"Access-Control-Allow-Credentials" : true
 });
+
+var corsOptions = {
+    origin: ['http://localhost:5500', 'http://127.0.0.1:5500'], //Cambia XXXX por el puerto en que se levante tu aplicación cliente en local
+    optionsSuccessStatus: 200, // For legacy browser support
+    methods: "GET, PUT, POST" //Esto es optativo si quieres restringir solo a determinados métodos HTTP
+}
+app.use(cors(corsOptions));
+
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2);
 
@@ -29,6 +38,8 @@ const dbOpscions = {
     password: 'root',
     database: 'databaseMyBarTFG',
 };
+
+
 
 // ============================================================================== //
 // MIDDLEWARES

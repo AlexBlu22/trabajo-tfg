@@ -60,7 +60,7 @@
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
 
           <li>
-            <a href="bar.html" class="nav-link text-white">
+            <a href="administrador.html" class="nav-link text-white">
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="" fill="currentColor" class="bi bi-reply-fill"
                 viewBox="0 0 16 16">
                 <path
@@ -81,7 +81,7 @@
     <!-- Navegador sencillo -->
     <div class="text-center mybar-background white">
       <div class="text-white fs-1">
-        Pedidos entrantes
+        Informacion de comidas
       </div>
     </div>
 
@@ -92,11 +92,9 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Usuario</th>
-          <th scope="col">comida</th>
-          <th scope="col">cantidad</th>
-          <th scope="col">fecha_hora</th>
-          <th scope="col">preparado</th>
+          <th scope="col">Comida</th>
+          <th scope="col">Alergenos</th>
+          <th scope="col">precio</th>
         </tr>
       </thead>
       <tbody id="id_tablaProductos"></tbody>
@@ -159,64 +157,68 @@
 
     // Simular obtener datos de la APIRest
     let vJsonDatos = {
-        "result": [
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 4,
-                "usuario": "Bradney",
-                "id_comida": 9,
-                "comida": "chuletas",
-                "alergenos": "puede contener huevo",
-                "precio": 4.32,
-                "cantidad": 1,
-                "id_pedido": 4,
-                "preparado": "si",
-                "fecha_hora": "2022-04-29T10:30:00.000Z"
-            },
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 4,
-                "usuario": "Bradney",
-                "id_comida": 2,
-                "comida": "sopa",
-                "alergenos": "puede contener huevo",
-                "precio": 9.28,
-                "cantidad": 3,
-                "id_pedido": 4,
-                "preparado": "si",
-                "fecha_hora": "2022-04-29T10:30:00.000Z"
-            },
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 1,
-                "usuario": "Flor",
-                "id_comida": null,
-                "comida": null,
-                "alergenos": null,
-                "precio": null,
-                "cantidad": null,
-                "id_pedido": 1,
-                "preparado": "no",
-                "fecha_hora": "2022-04-26T10:30:00.000Z"
-            },
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 3,
-                "usuario": "June",
-                "id_comida": null,
-                "comida": null,
-                "alergenos": null,
-                "precio": null,
-                "cantidad": null,
-                "id_pedido": 3,
-                "preparado": "si",
-                "fecha_hora": "2022-04-28T10:30:00.000Z"
-            }
-        ]
+      "result": [
+        {
+          "id_comida": 1,
+          "comida": "macarrones",
+          "alergenos": "contiene gluten",
+          "precio": 8.35
+        },
+        {
+          "id_comida": 2,
+          "comida": "sopa",
+          "alergenos": "puede contener huevo",
+          "precio": 9.28
+        },
+        {
+          "id_comida": 3,
+          "comida": "macarrones",
+          "alergenos": "puede contener huevo",
+          "precio": 9.89
+        },
+        {
+          "id_comida": 4,
+          "comida": "chuletas",
+          "alergenos": "puede contener mostaza",
+          "precio": 9.11
+        },
+        {
+          "id_comida": 5,
+          "comida": "sopa",
+          "alergenos": "puede contener huevo",
+          "precio": 4.52
+        },
+        {
+          "id_comida": 6,
+          "comida": "chuletas",
+          "alergenos": "puede contener huevo",
+          "precio": 6.25
+        },
+        {
+          "id_comida": 7,
+          "comida": "chuletas",
+          "alergenos": "contiene gluten",
+          "precio": 4.1
+        },
+        {
+          "id_comida": 8,
+          "comida": "chuletas",
+          "alergenos": "puede contener huevo",
+          "precio": 8.71
+        },
+        {
+          "id_comida": 9,
+          "comida": "chuletas",
+          "alergenos": "puede contener huevo",
+          "precio": 4.32
+        },
+        {
+          "id_comida": 10,
+          "comida": "chuletas",
+          "alergenos": "contiene gluten",
+          "precio": 6.93
+        }
+      ]
     };
 
       let vJsonDatos2 = {
@@ -249,27 +251,19 @@
 
                let fila = document.createElement("tr");
                let elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].id_bar;
+               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].id_comida;
                fila.appendChild( elemento );
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].usuario;
-               fila.appendChild(elemento);
 
                elemento = document.createElement("td");
                elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].comida;
                fila.appendChild(elemento);
 
                elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].cantidad;
+               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].alergenos;
                fila.appendChild(elemento);
 
                elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].fecha_hora;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].preparado;
+               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].precio;
                fila.appendChild(elemento);
   
                tblBody.appendChild(fila);

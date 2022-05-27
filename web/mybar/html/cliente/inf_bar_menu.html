@@ -34,7 +34,7 @@
 
     <!-- Titulo/logo WEB -->
     <link rel="icon" type="image/png" href="../../image/logo/logo png/logo4.png" />
-    <title>myBar · Pedidos</title>
+    <title>myBar · Todos los bares</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
         <nav class="navbar navbar-dark mybar-background white" aria-label="First navbar example">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <p class="h1"><img class="" src="../../image/logo/logo png/logo4.png" alt="" width="50"> Pedidos</p>
+                    <p class="h1"><img class="" src="../../image/logo/logo png/logo4.png" alt="" width="50"> Todos los bares</p>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false"
@@ -70,9 +70,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../cliente/mostrar_bares.html">
+                            <a class="nav-link active" href="../cliente/pedidos_cliente.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
-                                    class="bi bi-bank" viewBox="0 0 16 16">
+                                    class="bi bi-card-list" viewBox="0 0 16 16">
                                     <path
                                         d="M8 .95 14.61 4h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.379l.5 2A.5.5 0 0 1 15.5 17H.5a.5.5 0 0 1-.485-.621l.5-2A.5.5 0 0 1 1 14V7H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 4h.89L8 .95zM3.776 4h8.447L8 2.05 3.776 4zM2 7v7h1V7H2zm2 0v7h2.5V7H4zm3.5 0v7h1V7h-1zm2 0v7H12V7H9.5zM13 7v7h1V7h-1zm2-1V5H1v1h14zm-.39 9H1.39l-.25 1h13.72l-.25-1z" />
                                 </svg>
@@ -81,7 +81,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="../cliente/pedidos_cliente.html">
+                            <a class="nav-link active" href="../cliente/pedidos_cliente.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
                                     class="bi bi-card-list" viewBox="0 0 16 16">
                                     <path
@@ -132,7 +132,7 @@
     <!-- Navegador sencillo -->
     <div class="text-center mybar-background white">
       <div class="text-white fs-1">
-        Informacion de mis pedidos
+        Informacion de los bares
       </div>
     </div>
 
@@ -143,12 +143,19 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">bar</th>
+          <th scope="col">nombre del bar</th>
+          <th scope="col">dirección</th>
+          <th scope="col">telefono</th>
           <th scope="col">comida</th>
           <th scope="col">alergenos</th>
           <th scope="col">precio</th>
-          <th scope="col">cantidad</th>
-          <th scope="col">preparado</th>
+          <th>
+            <a href="crear_pedido.html" class="nav-link text-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+              </svg>
+            </a>
+          </th>
         </tr>
       </thead>
       <tbody id="id_tablaProductos"></tbody>
@@ -213,46 +220,34 @@
     let vJsonDatos = {
         "result": [
             {
-                "id_usuario_pedido": 7,
-                "usuario": "Jordain",
                 "id_bar": 1,
                 "nombre": "CorEnergy Infrastructure Trust, Inc.",
+                "direccion": "Sommers",
+                "telefono": 652789463,
                 "id_comida": 6,
                 "comida": "chuletas",
                 "alergenos": "puede contener huevo",
-                "precio": 6.25,
-                "cantidad": 2,
-                "id_pedido": 7,
-                "preparado": "no",
-                "fecha_hora": "2022-05-02T10:30:00.000Z"
+                "precio": 6.25
             },
             {
-                "id_usuario_pedido": 7,
-                "usuario": "Jordain",
                 "id_bar": 1,
                 "nombre": "CorEnergy Infrastructure Trust, Inc.",
+                "direccion": "Sommers",
+                "telefono": 652789463,
                 "id_comida": 5,
                 "comida": "sopa",
                 "alergenos": "puede contener huevo",
-                "precio": 4.52,
-                "cantidad": 2,
-                "id_pedido": 7,
-                "preparado": "no",
-                "fecha_hora": "2022-05-02T10:30:00.000Z"
+                "precio": 4.52
             },
             {
-                "id_usuario_pedido": 7,
-                "usuario": "Jordain",
                 "id_bar": 1,
                 "nombre": "CorEnergy Infrastructure Trust, Inc.",
+                "direccion": "Sommers",
+                "telefono": 652789463,
                 "id_comida": 1,
                 "comida": "macarrones",
                 "alergenos": "contiene gluten",
-                "precio": 8.35,
-                "cantidad": 3,
-                "id_pedido": 7,
-                "preparado": "no",
-                "fecha_hora": "2022-05-02T10:30:00.000Z"
+                "precio": 8.35
             }
         ]
     };
@@ -287,11 +282,19 @@
 
                let fila = document.createElement("tr");
                let elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].usuario;
+               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].id_bar;
                fila.appendChild( elemento );
 
                elemento = document.createElement("td");
                elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].nombre;
+               fila.appendChild(elemento);
+
+               elemento = document.createElement("td");
+               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].direccion;
+               fila.appendChild(elemento);
+
+               elemento = document.createElement("td");
+               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].telefono;
                fila.appendChild(elemento);
 
                elemento = document.createElement("td");
@@ -304,14 +307,6 @@
 
                elemento = document.createElement("td");
                elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].precio;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].cantidad;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].preparado;
                fila.appendChild(elemento);
   
                tblBody.appendChild(fila);

@@ -23,52 +23,66 @@
 
         function traer() {
 
-            //fetch('http://localhost:3000/sesiones/login/pp@gmail.com', { mode: 'no-cors' })
-            //    .then(res =>res.json())
-            //    .then(data =>console.log(data))
+            sURL = 'http://localhost:3000/sesiones/login/pp@gmail.com';
+            fetch(sURL)
+                .then( (response) => { return response.json(); })
+                .then( (data) => { 
+                                    //console.log( 'Return data' );
+                                    //console.log( data ); 
+                                    if( data.result.length > 0 ) {
+                                        //console.log( 'Información:' );
+                                        //console.log( data.result[0] );
+                                        //console.log( 'Usuario:' );
+                                        //console.log( data.result[0].usuario );
+                                        //console.log( 'Longitud' );
+                                        //console.log( data.result.length );
+                                        fCargaURL();  
+                                    } else {
+                                        console.log( "Sin datos")
+                                    }
+                                 }
+                     )
+                .catch( (error) => { console.log(error); });
 
-            let vJson = {
-                "result": [
-                  {
-                    "id_usuario": 10,
-                    "usuario": "pp@gmail.com",
-                    "correo": "pp@gmail.com",
-                    "contrasena": "59898-401"
-                  }                ]
-              };
-            let vJson2 = {
-                "result": [  
-                ]
-              }
+            //let vJson2 = {
+            //    "result": [{
+            //        "id_usuario": 10,
+            //        "usuario": "pp@gmail.com",
+            //        "correo": "pp@gmail.com",
+            //        "contrasena": "59898-401"
+            //              }]
+            //};
+            //let vJson2 = {
+            //    "result": [  
+            //    ]
+            //  }
+            //console.log( vJson2.result[0] );
+            //console.log( vJson2.result[0].usuario );      
 
-            //console.log( vJson.result );
-            //console.log( vJson.result[0] );
-            //console.log( vJson.result[0].usuario );
-
-            console.log( vJson.result.length );
-            if( vJson.result.length > 0 ) {
-                console.log( vJson.result[0].usuario );
-                let sNewURL = "../administrador/administrador.html";
-                fCargaURL( sNewURL );
-            } else {
-                console.log( "Sin datos")
-            }
+            //console.log( vJson.result.length );
+            //if( vJson.result.length > 0 ) {
+            //    console.log( vJson.result[0].usuario );
+            //    let sNewURL = "../administrador/administrador.html";
+            //    fCargaURL( sNewURL );
+            //} else {
+            //    console.log( "Sin datos")
+            //}
 
             //console.log( vJson2.result );
-            console.log( vJson2.result.length );
-            if( vJson2.result.length > 0 ) {
-                console.log( vJson2.result[0].usuario );
-            } else {
-                console.log( "Sin datos")
-            }
+            //console.log( vJson2.result.length );
+            //if( vJson2.result.length > 0 ) {
+            //    console.log( vJson2.result[0].usuario );
+            //} else {
+            //    console.log( "Sin datos")
+            //}
 
-        }
+        } 
 
     /* parte que edita el cliente */
-       function fCargaURL(sCargarNewURl) {
-           //alert( sCargarNewURl );
-
-           window.location.href = sCargarNewURl;
+       function fCargaURL() {
+            let sCargarNewURl = "../administrador/administrador.html";
+            //alert( sCargarNewURl );
+            window.location.href = sCargarNewURl;
        }
 
     </script>
