@@ -81,7 +81,7 @@
     <!-- Navegador sencillo -->
     <div class="text-center mybar-background white">
       <div class="text-white fs-1">
-        Informacion de comidas
+        Menús - Pedidos
       </div>
     </div>
 
@@ -152,108 +152,65 @@
 
   <script>
 
-    let sCadenaInvocacionServlet = "http://localhost:3000/comida";
-
-    //alert("Invocación al servicio web: " + sCadenaInvocacionServlet );
+    let sCadenaInvocacionServlet = "http://localhost:3000/usuarios/pedidos";
+    console.log( sCadenaInvocacionServlet );
     //alert( sCadenaInvocacionServlet );
 
-    // Simular obtener datos de la APIRest
-    let vJsonDatos = {
-        "result": [
-            {
-                "id_bar": 1,
-                "nombre": "CorEnergy Infrastructure Trust, Inc.",
-                "direccion": "Sommers",
-                "telefono": 652789463,
-                "id_comida": 6,
-                "comida": "chuletas",
-                "alergenos": "puede contener huevo",
-                "precio": 6.25
-            },
-            {
-                "id_bar": 1,
-                "nombre": "CorEnergy Infrastructure Trust, Inc.",
-                "direccion": "Sommers",
-                "telefono": 652789463,
-                "id_comida": 5,
-                "comida": "sopa",
-                "alergenos": "puede contener huevo",
-                "precio": 4.52
-            },
-            {
-                "id_bar": 1,
-                "nombre": "CorEnergy Infrastructure Trust, Inc.",
-                "direccion": "Sommers",
-                "telefono": 652789463,
-                "id_comida": 1,
-                "comida": "macarrones",
-                "alergenos": "contiene gluten",
-                "precio": 8.35
-            }
-        ]
-    };
+    fetch(sCadenaInvocacionServlet)
+    .then( (response) => { return response.json(); })
+    .then( (data) => { 
+                        console.log( 'Return data' );
+                        console.log( data ); 
+                        if( data.result.length > 0 ) {
+                            console.log( 'Longitud' );
+                            console.log( data.result.length );
+                            console.log( 'id_comida:' );
+                            console.log( data.result[0].id_comida );
+                            console.log( 'precio:' );
+                            console.log( data.result[0].precio );
 
-      let vJsonDatos2 = {
-        "result": [  
-        ]
-      }
-
-    //fetch( sCadenaInvocacionServlet  )
-    //.then( console.log(".....") )
-    //.then( response => response.json())
-    //.then( response => {
-    //       console.log(response)
-    //})
-    //.then( console.log("_____"))
-    //.catch( err => console.error(err));
-
-    //alert( vJsonDatos.result.length );
-      if( vJsonDatos.result.length > 0 ) {
-         //alert( "Tenermos datos .... " + vJsonDatos.result.length );
-
-         //alert( "Id comida: " + vJsonDatos.result[0].id_comida );
-         //alert( "comida: " + vJsonDatos.result[0].comida );
-         //alert( "alergenos: " + vJsonDatos.result[0].alergenos );
-         //alert( "Precio: " + vJsonDatos.result[0].precio );
-
-         let tblBody = document.getElementById("id_tablaProductos");
-         let nRegistros = vJsonDatos.result.length;
-
-         for ( var nRegistrosJSON = 0; nRegistrosJSON <= nRegistros; nRegistrosJSON++) {
-
-               let fila = document.createElement("tr");
-               let elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].id_bar;
-               fila.appendChild( elemento );
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].nombre;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].direccion;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].telefono;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].comida;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].precio;
-               fila.appendChild(elemento);
+                            let tblBody = document.getElementById("id_tablaProductos");
+                            let nRegistros = data.result.length;
+                   
+                            for ( var nRegistrosJSON = 0; nRegistrosJSON <= nRegistros; nRegistrosJSON++) {
+                   
+                                  let fila = document.createElement("tr");
+                                  let elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].id_bar;
+                                  fila.appendChild( elemento );
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].nombre;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].direccion;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].telefono;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].comida;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].precio;
+                                  fila.appendChild(elemento);
+                     
+                                  tblBody.appendChild(fila);
+                   
+                            }
   
-               tblBody.appendChild(fila);
-
-         }
-
-      } else {
-        alert( "No tenemos datos ...");
-      }   
-
+                        } else {
+                            console.log( "No existen pedidos ...")
+                            document.getElementById("CajaMensajes").innerHTML = "No exiten pedidos ...";
+                            //alert( "Usuario no identificado ..." );
+                        }
+                     }
+         )
+    .catch( (error) => { console.log(error); });
 
 </script>
   

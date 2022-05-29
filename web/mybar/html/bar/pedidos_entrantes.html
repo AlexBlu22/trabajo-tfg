@@ -152,134 +152,65 @@
 
   <script>
 
-    let sCadenaInvocacionServlet = "http://localhost:3000/comida";
-
-    //alert("Invocación al servicio web: " + sCadenaInvocacionServlet );
+    let sCadenaInvocacionServlet = "http://localhost:3000/usuarios/pedidos";
+    console.log( sCadenaInvocacionServlet );
     //alert( sCadenaInvocacionServlet );
 
-    // Simular obtener datos de la APIRest
-    let vJsonDatos = {
-        "result": [
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 4,
-                "usuario": "Bradney",
-                "id_comida": 9,
-                "comida": "chuletas",
-                "alergenos": "puede contener huevo",
-                "precio": 4.32,
-                "cantidad": 1,
-                "id_pedido": 4,
-                "preparado": "si",
-                "fecha_hora": "2022-04-29T10:30:00.000Z"
-            },
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 4,
-                "usuario": "Bradney",
-                "id_comida": 2,
-                "comida": "sopa",
-                "alergenos": "puede contener huevo",
-                "precio": 9.28,
-                "cantidad": 3,
-                "id_pedido": 4,
-                "preparado": "si",
-                "fecha_hora": "2022-04-29T10:30:00.000Z"
-            },
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 1,
-                "usuario": "Flor",
-                "id_comida": null,
-                "comida": null,
-                "alergenos": null,
-                "precio": null,
-                "cantidad": null,
-                "id_pedido": 1,
-                "preparado": "no",
-                "fecha_hora": "2022-04-26T10:30:00.000Z"
-            },
-            {
-                "id_bar": 9,
-                "nombre": "National Research Corporation",
-                "id_usuario_pedido": 3,
-                "usuario": "June",
-                "id_comida": null,
-                "comida": null,
-                "alergenos": null,
-                "precio": null,
-                "cantidad": null,
-                "id_pedido": 3,
-                "preparado": "si",
-                "fecha_hora": "2022-04-28T10:30:00.000Z"
-            }
-        ]
-    };
+    fetch(sCadenaInvocacionServlet)
+    .then( (response) => { return response.json(); })
+    .then( (data) => { 
+                        console.log( 'Return data' );
+                        console.log( data ); 
+                        if( data.result.length > 0 ) {
+                            console.log( 'Longitud' );
+                            console.log( data.result.length );
+                            console.log( 'Información:' );
+                            console.log( data.result[0] );
+                            console.log( 'id_comida:' );
+                            console.log( data.result[0].id_comida );
 
-      let vJsonDatos2 = {
-        "result": [  
-        ]
-      }
-
-    //fetch( sCadenaInvocacionServlet  )
-    //.then( console.log(".....") )
-    //.then( response => response.json())
-    //.then( response => {
-    //       console.log(response)
-    //})
-    //.then( console.log("_____"))
-    //.catch( err => console.error(err));
-
-    //alert( vJsonDatos.result.length );
-      if( vJsonDatos.result.length > 0 ) {
-         //alert( "Tenermos datos .... " + vJsonDatos.result.length );
-
-         //alert( "Id comida: " + vJsonDatos.result[0].id_comida );
-         //alert( "comida: " + vJsonDatos.result[0].comida );
-         //alert( "alergenos: " + vJsonDatos.result[0].alergenos );
-         //alert( "Precio: " + vJsonDatos.result[0].precio );
-
-         let tblBody = document.getElementById("id_tablaProductos");
-         let nRegistros = vJsonDatos.result.length;
-
-         for ( var nRegistrosJSON = 0; nRegistrosJSON <= nRegistros; nRegistrosJSON++) {
-
-               let fila = document.createElement("tr");
-               let elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].id_bar;
-               fila.appendChild( elemento );
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].usuario;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].comida;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].cantidad;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].fecha_hora;
-               fila.appendChild(elemento);
-
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].preparado;
-               fila.appendChild(elemento);
+                            let tblBody = document.getElementById("id_tablaProductos");
+                            let nRegistros = data.result.length;
+                   
+                            for ( var nRegistrosJSON = 0; nRegistrosJSON <= nRegistros; nRegistrosJSON++) {
+                   
+                                  let fila = document.createElement("tr");
+                                  let elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].id_bar;
+                                  fila.appendChild( elemento );
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].usuario;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].comida;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].cantidad;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].fecha_hora;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].preparado;
+                                  fila.appendChild(elemento);
+                     
+                                  tblBody.appendChild(fila);
+                   
+                            }
   
-               tblBody.appendChild(fila);
-
-         }
-
-      } else {
-        alert( "No tenemos datos ...");
-      }   
-
+                        } else {
+                            console.log( "No existen pedidos ...")
+                            document.getElementById("CajaMensajes").innerHTML = "No exiten pedidos ...";
+                            //alert( "Usuario no identificado ..." );
+                        }
+                     }
+         )
+    .catch( (error) => { console.log(error); });
 
 </script>
   

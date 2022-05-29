@@ -24,6 +24,7 @@
         function traer() {
 
             sURL = 'http://localhost:3000/sesiones/login/pp@gmail.com';
+            alert( sURL );
             fetch(sURL)
                 .then( (response) => { return response.json(); })
                 .then( (data) => { 

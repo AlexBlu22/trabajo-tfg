@@ -225,7 +225,7 @@ app.use('/bar/crear_pedido', require('./routes/usuarios/crear_pedido'));
 
 // Visualizar pedidos del usuario
 // Ruta [http://localhost:3000/usuarios/pedidos]
-app.use('/usuarios/pedidos', require('./routes/usuarios/pedidos_usuario'));
+app.use('/usuarios/pedidos', require('./routes/usuarios/pedidos'));
 
 
 // =====
