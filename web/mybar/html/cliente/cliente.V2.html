@@ -83,7 +83,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="../cliente/pedidos_cliente.html">
+                            <a class="nav-link active" onclick="fCargarTodosLosPedidos()" >
+
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
                                     class="bi bi-card-list" viewBox="0 0 16 16">
                                     <path
@@ -105,24 +106,7 @@
                                 Configuracion
                             </a>
                         </li>
-
-                        <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
-                                aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        -->
                     </ul>
-                    <!--
-                    <form>
-                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                    </form>
-                    -->
                 </div>
             </div>
         </nav>
@@ -134,7 +118,7 @@
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Busca tu bar favorito y reserva tu pedido ya</p>
             <div class="d-sm-flex justify-content-sm-center">
-                <input class="form-control" id="nBar" type="text" placeholder="ej, Cerveceria Poveda" aria-label="Search">
+                <input class="form-control" id="sBar" type="text" placeholder="ej, Cerveceria Poveda" aria-label="Search">
             </div>
             <div class="d-grid justify-content-sm-center">
                 <button class="w-100 btn btn-lg mybar-background white" onclick="fBusquedabar()">Buscar</button> 
@@ -170,30 +154,103 @@
 
         function fBusquedabar(){
     
-            let sBar = document.getElementById('nBar').value;
+            if (window.location.search != "") {
+                const queryStr = window.location.search.substring(1);
+                let parametro  = queryStr.split("=");
+                    sUsuario  = parametro[1];
+                console.log( "Usuario:" );
+                console.log( sUsuario );
+            }        
+
+            let sBar = document.getElementById('sBar').value;
+            console.log( "("+ sBar + ")" );
+
             let bBuscarbar = true;
-    
+       
             if (sBar == "" ) {
+                console.log( "Bar no indicado ..." );
+                console.log( sBar );
                 document.getElementById("CajaMensajes").innerHTML = "Bar no indicado ...";
                 bBuscarbar = false;
             }
     
             if ( bBuscarbar ) {
-                document.getElementById("CajaMensajes").innerHTML = "Procedemos a buscar tu bar de confianza ... "; 
-                window.location="http://127.0.0.1:5500/web/mybar/html/cliente/inf_bar_menu.html";
-    
-                  //fetch( sCadenaInvocacionServlet  )
-                  //.then( console.log(".....") )
-                  //.then( response => response.json())
-                  //.then( response => {
-                  //       console.log(response)
-                  //})
-                  //.then( console.log("_____"))
-                  //.catch( err => console.error(err)); 
-    
+
+                document.getElementById("CajaMensajes").innerHTML = "";
+                
+                sCadenaInvocacionServlet = "http://localhost:3000/bar/mostrar_bares";
+                console.log( sCadenaInvocacionServlet );
+
+                fetch(sCadenaInvocacionServlet)
+                .then( (response) => { return response.json(); })
+                .then( (data) => { 
+                                    console.log( 'Return data' );
+                                    console.log( data ); 
+                                    if( data.result.length > 0 ) {
+                                        console.log( 'Longitud' );
+                                        console.log( data.result.length );
+                                      
+                                        bMiBarExiste = false;
+                                        id_bar = 0;
+                                        let nRegistros = data.result.length;
+                                        for ( var nRegistrosJSON = 0; nRegistrosJSON <= (nRegistros-1); nRegistrosJSON++) {
+                                              //console.log( 'Información:' );
+                                              console.log( data.result[nRegistrosJSON].id_bar );
+                                              console.log( data.result[nRegistrosJSON].nombre );
+                                              if( sBar == data.result[nRegistrosJSON].nombre) {
+                                                id_bar = data.result[nRegistrosJSON].id_bar;
+                                                bMiBarExiste = true;
+                                              }
+                                        }
+                                        if( bMiBarExiste ) {
+                                            document.getElementById("CajaMensajes").innerHTML = "Mi bar existe ...";
+                                            let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/inf_bar_menu.html?id_bar=" + id_bar + "&usuario=" + sUsuario; 
+                                            console.log( sNewURL);
+                                            fCargaURL( sNewURL ); 
+                                        } else {
+                                            document.getElementById("CajaMensajes").innerHTML = "El bar indicado no exite ...";
+                                        };
+                                    } else {
+                                        console.log( "El bar indicado no existe ...")
+                                        document.getElementById("CajaMensajes").innerHTML = "Usuario sin datos de tipo usuario ...";
+                                        //alert( "Usuario sin datos de tipo usuario ..." );
+                                    }
+                                 }
+                     )
+                .catch( (error) => { console.log(error); });
+
             }
     
         }
+
+     /* Ir a la pagina para mostrar todos los pedidos del cliente  */
+     function fCargarTodosLosPedidos() {
+
+            let sUsuario = "";
+            if (window.location.search != "") {
+                const queryStr = window.location.search.substring(1);
+                let parametro  = queryStr.split("=");
+                    sUsuario  = parametro[1];
+            }        
+            console.log( "ID_cliente:" );
+            console.log( sUsuario );
+
+            let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/pedidos_cliente.html?usuario=" + sUsuario;
+            console.log ( sNewURL );
+
+            fCargaURL( sNewURL );
+
+     }
+
+     /* Función que invoca a la carga de la siguiente pantalla */
+        function fCargaURL(sCargarNewURl) {
+           //alert(window.location.href);
+           //alert(window.location.hostname);
+           //alert(window.location.protocol);
+           //alert(window.location.assign);
+           window.location.href = sCargarNewURl;
+        }
+
     </Script>
 
 </body>

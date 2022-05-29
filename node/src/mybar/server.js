@@ -202,7 +202,6 @@ app.use('/sesiones/login', require('./routes/sesiones/login'));
 // Ruta [http://localhost:3000/sesiones/creacion_de_usuarios]
 app.use('/sesiones/creacion_de_usuarios', require('./routes/sesiones/creacion_de_usuarios'));
 
-
 // ========
 // USUARIOS
 // ========

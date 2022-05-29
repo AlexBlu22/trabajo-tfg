@@ -29,9 +29,6 @@
     <!-- Personal CSS -->
     <link rel="stylesheet" type="text/css" href="../../css/colores_mybar.css" />
 
-    <!-- Personal JS -->
-    <script src="../../js/...js"></script>
-
     <!-- Titulo/logo WEB -->
     <link rel="icon" type="image/png" href="../../image/logo/logo png/logo4.png" />
     <title>myBar · Pedidos</title>
@@ -104,23 +101,8 @@
                             </a>
                         </li>
 
-                        <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
-                                aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        -->
                     </ul>
-                    <!--
-                    <form>
-                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                    </form>
-                    -->
+
                 </div>
             </div>
         </nav>
@@ -153,6 +135,8 @@
       </thead>
       <tbody id="id_tablaProductos"></tbody>
     </table>
+
+    <p style="color: red" id="CajaMensajes">___</p>
 
     <!-- Modal para mensajes -->
     <div class="modal" id="idModal" tabindex="-1">
@@ -204,124 +188,104 @@
 
   <script>
 
-    let sCadenaInvocacionServlet = "http://localhost:3000/comida";
+    let bDatosCabecera = false;
+    let sUsuario = 0;
 
-    //alert("Invocación al servicio web: " + sCadenaInvocacionServlet );
-    //alert( sCadenaInvocacionServlet );
+    if (window.location.search != "") {
 
-    // Simular obtener datos de la APIRest
-    let vJsonDatos = {
-        "result": [
-            {
-                "id_usuario_pedido": 7,
-                "usuario": "Jordain",
-                "id_bar": 1,
-                "nombre": "CorEnergy Infrastructure Trust, Inc.",
-                "id_comida": 6,
-                "comida": "chuletas",
-                "alergenos": "puede contener huevo",
-                "precio": 6.25,
-                "cantidad": 2,
-                "id_pedido": 7,
-                "preparado": "no",
-                "fecha_hora": "2022-05-02T10:30:00.000Z"
-            },
-            {
-                "id_usuario_pedido": 7,
-                "usuario": "Jordain",
-                "id_bar": 1,
-                "nombre": "CorEnergy Infrastructure Trust, Inc.",
-                "id_comida": 5,
-                "comida": "sopa",
-                "alergenos": "puede contener huevo",
-                "precio": 4.52,
-                "cantidad": 2,
-                "id_pedido": 7,
-                "preparado": "no",
-                "fecha_hora": "2022-05-02T10:30:00.000Z"
-            },
-            {
-                "id_usuario_pedido": 7,
-                "usuario": "Jordain",
-                "id_bar": 1,
-                "nombre": "CorEnergy Infrastructure Trust, Inc.",
-                "id_comida": 1,
-                "comida": "macarrones",
-                "alergenos": "contiene gluten",
-                "precio": 8.35,
-                "cantidad": 3,
-                "id_pedido": 7,
-                "preparado": "no",
-                "fecha_hora": "2022-05-02T10:30:00.000Z"
-            }
-        ]
-    };
+      bDatosCabecera = true;
 
-      let vJsonDatos2 = {
-        "result": [  
-        ]
-      }
+      const queryStr = window.location.search.substring(1);
+      let parametro  = queryStr.split("=");
+      sUsuario  = parametro[1];
 
-    //fetch( sCadenaInvocacionServlet  )
-    //.then( console.log(".....") )
-    //.then( response => response.json())
-    //.then( response => {
-    //       console.log(response)
-    //})
-    //.then( console.log("_____"))
-    //.catch( err => console.error(err));
+      console.log( "Usuario:" );
+      console.log( sUsuario );
+          
+      //Simular con datos de un bar y un pedido con datos
+        //sUsuario = "Jordain";
 
-    //alert( vJsonDatos.result.length );
-      if( vJsonDatos.result.length > 0 ) {
-         //alert( "Tenermos datos .... " + vJsonDatos.result.length );
+    } else {
+      bDatosCabecera = false ;
 
-         //alert( "Id comida: " + vJsonDatos.result[0].id_comida );
-         //alert( "comida: " + vJsonDatos.result[0].comida );
-         //alert( "alergenos: " + vJsonDatos.result[0].alergenos );
-         //alert( "Precio: " + vJsonDatos.result[0].precio );
+      console.log( "Sin datos en la cabecera HTML ...");
+      document.getElementById("CajaMensajes").innerHTML = "Sin datos en la cabecera HTML ...";
 
-         let tblBody = document.getElementById("id_tablaProductos");
-         let nRegistros = vJsonDatos.result.length;
+  } 
 
-         for ( var nRegistrosJSON = 0; nRegistrosJSON <= nRegistros; nRegistrosJSON++) {
+  if( bDatosCabecera ) {
 
-               let fila = document.createElement("tr");
-               let elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].usuario;
-               fila.appendChild( elemento );
+    document.getElementById("CajaMensajes").innerHTML = "";
 
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].nombre;
-               fila.appendChild(elemento);
+    let sCadenaInvocacionServlet = "http://localhost:3000/usuarios/pedidos";
+    console.log( sCadenaInvocacionServlet );
+    
+    fetch(sCadenaInvocacionServlet)
+    .then( (response) => { return response.json(); })
+    .then( (data) => { 
+                        console.log( 'Return data' );
+                        console.log( data ); 
+                        if( data.result.length > 0 ) {
+                            console.log( 'Longitud' );
+                            console.log( data.result.length );
+                          
+                            let tblBody = document.getElementById("id_tablaProductos");
+                            let nRegistros = data.result.length;
 
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].comida;
-               fila.appendChild(elemento);
+                            for ( var nRegistrosJSON = 0; nRegistrosJSON <= (nRegistros-1); nRegistrosJSON++) {
+                                  //console.log( 'Información:' );
 
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].alergenos;
-               fila.appendChild(elemento);
+                                  console.log( "Verficar cada pedido del usuario ... ");
+                                  console.log( sUsuario);
+                                  console.log( data.result[nRegistrosJSON].usuario );
 
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].precio;
-               fila.appendChild(elemento);
+                                  if( (sUsuario == data.result[nRegistrosJSON].usuario) )  {
 
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].cantidad;
-               fila.appendChild(elemento);
+                                    let fila = document.createElement("tr");
+                                    let elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].id_bar;
+                                    fila.appendChild( elemento );
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].nombre;
+                                    fila.appendChild(elemento);
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].direccion;
+                                    fila.appendChild(elemento);
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].telefono;
+                                    fila.appendChild(elemento);
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].comida;
+                                    fila.appendChild(elemento);
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].alergenos;
+                                    fila.appendChild(elemento);
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].precio;
+                                    fila.appendChild(elemento);
+                      
+                                    tblBody.appendChild(fila);
+                                  };
 
-               elemento = document.createElement("td");
-               elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].preparado;
-               fila.appendChild(elemento);
-  
-               tblBody.appendChild(fila);
+                            };
 
-         }
+                        } else {
+                            console.log( "Sin información de pedidos en el bar ...")
+                            document.getElementById("CajaMensajes").innerHTML = "Sin información de pedidos para el cliente ...";
+                            //alert( "Usuario sin datos de tipo usuario ..." );
+                        };
 
-      } else {
-        alert( "No tenemos datos ...");
-      }   
+                     }
+         )
+    .catch( (error) => { console.log(error); });
 
+  };
 
 </script>
   

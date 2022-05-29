@@ -148,6 +148,8 @@
                                     console.log( data.result[0] );
                                     console.log( 'Usuario:' );
                                     console.log( data.result[0].usuario );
+                                    console.log( "ID Ususario");
+                                    console.log( data.result[0].id_usuario)
                                     console.log( 'Tipo Usuario:' );
                                     console.log( data.result[0].id_tipo_usuario );
                                     console.log( 'Pasword:' );
@@ -170,7 +172,8 @@
                                     } else if ( data.result[0].id_tipo_usuario == 3) {
                                         // ir a WEB Cliente
                                            //alert( "ir a WEB con perfil cliente .... ");
-                                           let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/cliente.V2.html";
+                                           let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/cliente.V2.html?usuario=" + data.result[0].usuario;
+                                           console.log( sNewURL);
                                            fCargaURL( sNewURL );
                     
                                     }
