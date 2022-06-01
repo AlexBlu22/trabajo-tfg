@@ -30,9 +30,6 @@
     <link rel="stylesheet" type="text/css" href="../../css/colores_mybar.css" />
     <link rel="stylesheet" type="text/css" href="../../css/header.css" />
 
-    <!-- Personal JS -->
-    <script src="../js/...js"></script>
-
     <!-- Titulo/logo WEB -->
     <link rel="icon" type="image/png" href="../../image/logo/logo png/logo4.png" />
     <title>myBar · Bar</title>
@@ -76,18 +73,18 @@
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label for="idfirstName" class="form-label">Nombre del producto</label>
-              <input type="text" class="form-control" id="idfirstName" name="firstName" required />
+              <label for="sNombreProducto" class="form-label">Nombre del producto</label>
+              <input type="text" class="form-control" id="sNombreProducto" name="sNombreProducto" required />
             </div>
             <div class="col-md-4">
-              <label for="idcantidad" class="form-label">Cantidad</label>
-              <input type="text" class="form-control" id="idcantidad" name="cantidad" required />
+              <label for="nCantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="nCantidad" name="nCantidad" required />
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label for="idhora" class="form-label">Hora</label>
-              <input type="text" class="form-control" id="idhora" name="hora" required />
+              <label for="hHora" class="form-label">Hora</label>
+              <input type="text" class="form-control" id="hHora" name="hHora" required />
             </div>
           </div>
             <div class="col-md-4">
@@ -142,46 +139,78 @@
 
     <script>
 
-      function fVerificarAltaUsurio(){
+      function fVerificarAltaPedido(){
   
-          let sUser = document.getElementById('idfirstName').value;
-          let sEMail = document.getElementById('idemail').value;
-          let sPass = document.getElementById('idpassword').value;
-          let bCrearUsuario = true;
+          let sNombreProducto = document.getElementById('sNombreProducto').value;
+          let nCantidad = document.getElementById('nCantidad').value;
+          let hHora = document.getElementById('hHora').value;
+          let bCrearPedido = true;
   
-          if (sUser == "" ) {
-              document.getElementById("CajaMensajes").innerHTML = "Usuario no indicado ...";
-              bCrearUsuario = false;
-          } else if (sEMail == "" ) {
-              document.getElementById("CajaMensajes").innerHTML = "eMail no indicado ...";
-              bCrearUsuario = false;
-          } else if (sPass == "" ) {
-              document.getElementById("CajaMensajes").innerHTML = "Password no indicada ...";
-              bCrearUsuario = false;
+          if (sNombreProducto == "" ) {
+              document.getElementById("CajaMensajes").innerHTML = "Producto no indicado ...";
+              bCrearPedido = false;
+          } else if (nCantidad == "" ) {
+              document.getElementById("CajaMensajes").innerHTML = "Cantidad no indicada ...";
+              bCrearPedido = false;
+          } else if (hHora == "" ) {
+              document.getElementById("CajaMensajes").innerHTML = "Hora no indicada ...";
+              bCrearPedido = false;
           } 
   
-          if ( bCrearUsuario ) {
-              document.getElementById("CajaMensajes").innerHTML = ""; 
-              window.location="http://127.0.0.1:5500/web/mybar/html/administrador/administrador.html";
+          if ( bCrearPedido ) {
+          
+            let sCadenaInvocacionServlet = "http://localhost:3000/bar/crear_pedido";
+            console.log( sCadenaInvocacionServlet );
+            console.log( "(" + sNombreProducto + ") (" + nCantidad + ") (" + hHora + ")" );
+            //alert( sCadenaInvocacionServlet );
+            //alert( "(" + sProducto + ") (" + sPrecio + ") (" + sAlergenos + ")" );
   
-                //fetch( sCadenaInvocacionServlet  )
-                //.then( console.log(".....") )
-                //.then( response => response.json())
-                //.then( response => {
-                //       console.log(response)
-                //})
-                //.then( console.log("_____"))
-                //.catch( err => console.error(err)); 
+            vDataPost = {
+                          "comida": sNombreProducto,
+                          "cantidad": nCantidad,
+                          "fecha_hora": parseFloat( hHora )
+                      };
+  
+            //alert( vDataPost.comida );
+            //alert( vDataPost.alergenos );
+            //alert( vDataPost.precio );
+            console.log( vDataPost );
+  
+            fetch(sCadenaInvocacionServlet,
+                   { 
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(vDataPost)
+                   }  
+                 )
+            .then( (response) => { 
+                    console.log( "Captura respuesta ... ");
+                    console.log( response );
+                    console.log( response.ok );
+                    return response.text(); 
+                  } )
+            .then( (data) => { 
+                    console.log( 'Return data' );
+                    console.log( data );
+                    if( data == 'Pedido agregado' ) {
+                        console.log( 'Comida agregado en BB.DD.' );
+                        document.getElementById("CajaMensajes").innerHTML = "Usuario creado correctemente ..."; 
+                        window.location="http://127.0.0.1:5500/web/mybar/html/cliente/inf_bar_menu.html"; 
+                    } else {
+                        console.log( 'Error al dar de alta la comida ...' );
+                        document.getElementById("CajaMensajes").innerHTML = "Error al crear el pedido revisar datos (precio)...";
+                    };
+                  } )
+            .catch( (error) => { console.log(error); });
   
           }
   
       }
 
-      function fCancelarAltaUsuario(){
-          document.getElementById('idfirstName').value = "";
-          document.getElementById('idemail').value  = "";
-          document.getElementById('idpassword').value  = "";
-          document.getElementById("CajaMensajes").innerHTML = "";
+      function fCancelarAltaPedido(){
+          document.getElementById('sNombreProducto').value = "";
+          document.getElementById('nCantidad').value  = "";
+          document.getElementById('hHora').value  = "";
       }  
       
   </script>

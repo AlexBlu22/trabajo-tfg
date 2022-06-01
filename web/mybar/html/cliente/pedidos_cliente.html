@@ -54,7 +54,7 @@
                     <ul class="navbar-nav me-auto mb-2">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../cliente/cliente.v2.html">
+                          <a class="nav-link active" onclick="fCargarHome()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-house" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -67,7 +67,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../cliente/mostrar_bares.html">
+                          <a class="nav-link active" onclick="fCargarTodosLosBares()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
                                     class="bi bi-bank" viewBox="0 0 16 16">
                                     <path
@@ -286,6 +286,54 @@
     .catch( (error) => { console.log(error); });
 
   };
+
+       /* Ir a la pagina para mostrar todos los bares  */
+       function fCargarTodosLosBares() {
+
+        let sUsuario = "";
+        if (window.location.search != "") {
+            const queryStr = window.location.search.substring(1);
+            let parametro  = queryStr.split("=");
+                sUsuario  = parametro[1];
+        }        
+        console.log( "Usuario:" );
+        console.log( sUsuario );
+
+        let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/mostrar_bares.html?usuario=" + sUsuario;
+        console.log ( sNewURL );
+
+        fCargaURL( sNewURL );
+
+       }
+
+         /* Ir a la pagina Home  */
+         function fCargarHome() {
+
+          let sUsuario = "";
+          if (window.location.search != "") {
+              const queryStr = window.location.search.substring(1);
+              let parametro  = queryStr.split("=");
+                  sUsuario  = parametro[1];
+          }        
+          console.log( "Usuario:" );
+          console.log( sUsuario );
+
+          let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/cliente.v2.html?usuario=" + sUsuario;
+          console.log ( sNewURL );
+
+          fCargaURL( sNewURL );
+
+         }
+
+
+          /* Función que invoca a la carga de la siguiente pantalla */
+          function fCargaURL(sCargarNewURl) {
+            //alert(window.location.href);
+            //alert(window.location.hostname);
+            //alert(window.location.protocol);
+            //alert(window.location.assign);
+            window.location.href = sCargarNewURl;
+         }
 
 </script>
   

@@ -56,7 +56,7 @@
           <ul class="navbar-nav me-auto mb-2">
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../cliente/cliente.v2.html">
+              <a class="nav-link active" onclick="fCargarHome()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house"
                   viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
@@ -80,7 +80,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" href="../cliente/pedidos_cliente.html">
+              <a class="nav-link active" onclick="fCargarTodosLosPedidos()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor" class="bi bi-card-list"
                   viewBox="0 0 16 16">
                   <path
@@ -102,24 +102,7 @@
                 Configuracion
               </a>
             </li>
-
-            <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
-                                aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        -->
           </ul>
-          <!--
-                    <form>
-                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                    </form>
-                    -->
         </div>
       </div>
     </nav>
@@ -145,7 +128,6 @@
           <th scope="col">nombre del bar</th>
           <th scope="col">dirección</th>
           <th scope="col">telefono</th>
-          <th scope="col">acción</th>
         </tr>
       </thead>
       <tbody id="id_tablaProductos"></tbody>
@@ -189,6 +171,8 @@
     <footer class="footer d-flex justify-content-between align-items-center py-3 my-4 border-top">
       <p class="col-md-4 mb-0 text-muted">&copy; myBar / 2022</p>
 
+      <p style="color: red" id="CajaMensajes">___</p>
+
       <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
@@ -201,131 +185,102 @@
 
   <script>
 
-    let sCadenaInvocacionServlet = "http://localhost:3000/comida";
+    let sCadenaInvocacionServlet = "http://localhost:3000/bar/mostrar_bares";
+    console.log( sCadenaInvocacionServlet );
+    
+    fetch(sCadenaInvocacionServlet)
+    .then( (response) => { return response.json(); })
+    .then( (data) => { 
+                        console.log( 'Return data' );
+                        console.log( data ); 
+                        if( data.result.length > 0 ) {
+                            console.log( 'Longitud' );
+                            console.log( data.result.length );
+                          
+                            let tblBody = document.getElementById("id_tablaProductos");
+                            let nRegistros = data.result.length;
+                         
+                            for ( var nRegistrosJSON = 0; nRegistrosJSON <= nRegistros; nRegistrosJSON++) {
+                         
+                                        let fila = document.createElement("tr");
+                                        let elemento = document.createElement("td");
+                                        elemento.innerHTML = data.result[nRegistrosJSON].id_bar;
+                                        fila.appendChild( elemento );
+                         
+                                        elemento = document.createElement("td");
+                                        elemento.innerHTML = data.result[nRegistrosJSON].nombre;
+                                        fila.appendChild(elemento);
+                         
+                                        elemento = document.createElement("td");
+                                        elemento.innerHTML = data.result[nRegistrosJSON].direccion;
+                                        fila.appendChild(elemento);
+                         
+                                        elemento = document.createElement("td");
+                                        elemento.innerHTML = data.result[nRegistrosJSON].telefono;
+                                        fila.appendChild(elemento);
+                           
+                                        tblBody.appendChild(fila);
+                         
+                            }
 
-    //alert("Invocación al servicio web: " + sCadenaInvocacionServlet );
-    //alert( sCadenaInvocacionServlet );
-
-    // Simular obtener datos de la APIRest
-    let vJsonDatos = {
-      "result": [
-        {
-          "id_bar": 1,
-          "nombre": "CorEnergy Infrastructure Trust, Inc.",
-          "direccion": "Sommers",
-          "telefono": 652789463
-        },
-        {
-          "id_bar": 2,
-          "nombre": "Reading International Inc",
-          "direccion": "4th",
-          "telefono": 252479463
-        },
-        {
-          "id_bar": 3,
-          "nombre": "Bar manolo el de la esquina",
-          "direccion": "C/ Silvano 001",
-          "telefono": 666584701
-        },
-        {
-          "id_bar": 4,
-          "nombre": "Annaly Capital Management Inc",
-          "direccion": "West",
-          "telefono": 852784763
-        },
-        {
-          "id_bar": 5,
-          "nombre": "EnteroMedics Inc.",
-          "direccion": "Evergreen",
-          "telefono": 892789463
-        },
-        {
-          "id_bar": 6,
-          "nombre": "Lions Gate Entertainment Corporation",
-          "direccion": "Forest Dale",
-          "telefono": 952789463
-        },
-        {
-          "id_bar": 7,
-          "nombre": "Citizens First Corporation",
-          "direccion": "Leroy",
-          "telefono": 322789463
-        },
-        {
-          "id_bar": 8,
-          "nombre": "AmTrust Financial Services, Inc.",
-          "direccion": "Anderson",
-          "telefono": 122789463
-        },
-        {
-          "id_bar": 9,
-          "nombre": "National Research Corporation",
-          "direccion": "School",
-          "telefono": 522789463
-        },
-        {
-          "id_bar": 10,
-          "nombre": "HNI Corporation",
-          "direccion": "Northfield",
-          "telefono": 52789463
-        }
-      ]
-    };
-
-    let vJsonDatos2 = {
-      "result": [
-      ]
-    }
-
-    //fetch( sCadenaInvocacionServlet  )
-    //.then( console.log(".....") )
-    //.then( response => response.json())
-    //.then( response => {
-    //       console.log(response)
-    //})
-    //.then( console.log("_____"))
-    //.catch( err => console.error(err));
-
-    //alert( vJsonDatos.result.length );
-    if (vJsonDatos.result.length > 0) {
-      //alert( "Tenermos datos .... " + vJsonDatos.result.length );
-
-      //alert( "Id comida: " + vJsonDatos.result[0].id_comida );
-      //alert( "comida: " + vJsonDatos.result[0].comida );
-      //alert( "alergenos: " + vJsonDatos.result[0].alergenos );
-      //alert( "Precio: " + vJsonDatos.result[0].precio );
-
-      let tblBody = document.getElementById("id_tablaProductos");
-      let nRegistros = vJsonDatos.result.length;
-
-      for (var nRegistrosJSON = 0; nRegistrosJSON <= nRegistros; nRegistrosJSON++) {
-
-        let fila = document.createElement("tr");
-        let elemento = document.createElement("td");
-        elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].id_bar;
-        fila.appendChild(elemento);
-
-        elemento = document.createElement("td");
-        elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].nombre;
-        fila.appendChild(elemento);
-
-        elemento = document.createElement("td");
-        elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].direccion;
-        fila.appendChild(elemento);
-
-        elemento = document.createElement("td");
-        elemento.innerHTML = vJsonDatos.result[nRegistrosJSON].telefono;
-        fila.appendChild(elemento);
-
-        tblBody.appendChild(fila);
-
-      }
-
-    } else {
-      alert("No tenemos datos ...");
-    }
+                        } else {
+                            console.log( "No hay lista de comidas ...")
+                            document.getElementById("CajaMensajes").innerHTML = "NO hay lista de comidas ...";
+                            //alert( "Usuario sin datos de tipo usuario ..." );
+                        }
+                     }
+         )
+    .catch( (error) => { console.log(error); });
 
 
+
+         /* Ir a la pagina para mostrar todos los pedidos del cliente  */
+         function fCargarTodosLosPedidos() {
+
+          let sUsuario = "";
+          if (window.location.search != "") {
+              const queryStr = window.location.search.substring(1);
+              let parametro  = queryStr.split("=");
+                  sUsuario  = parametro[1];
+          }        
+          console.log( "Usuario:" );
+          console.log( sUsuario );
+
+          let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/pedidos_cliente.html?usuario=" + sUsuario;
+          console.log ( sNewURL );
+
+          fCargaURL( sNewURL );
+
+         }
+
+         /* Ir a la pagina para mostrar todos los pedidos del cliente  */
+         function fCargarHome() {
+
+          let sUsuario = "";
+          if (window.location.search != "") {
+              const queryStr = window.location.search.substring(1);
+              let parametro  = queryStr.split("=");
+                  sUsuario  = parametro[1];
+          }        
+          console.log( "Usuario:" );
+          console.log( sUsuario );
+
+          let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/cliente.v2.html?usuario=" + sUsuario;
+          console.log ( sNewURL );
+
+          fCargaURL( sNewURL );
+
+         }
+
+        /* Función que invoca a la carga de la siguiente pantalla */
+        function fCargaURL(sCargarNewURl) {
+          //alert(window.location.href);
+          //alert(window.location.hostname);
+          //alert(window.location.protocol);
+          //alert(window.location.assign);
+          window.location.href = sCargarNewURl;
+       }
+       
   </script>
 
 </body>

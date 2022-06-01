@@ -92,11 +92,11 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Usuario</th>
+          <th scope="col">Nombre del bar</th>
           <th scope="col">comida</th>
           <th scope="col">cantidad</th>
           <th scope="col">fecha_hora</th>
-          <th scope="col">preparado</th>
+          <th scope="col">precio</th>
         </tr>
       </thead>
       <tbody id="id_tablaProductos"></tbody>
@@ -152,7 +152,7 @@
 
   <script>
 
-    let sCadenaInvocacionServlet = "http://localhost:3000/usuarios/pedidos";
+    let sCadenaInvocacionServlet = "http://localhost:3000/bar/pedidos/1";
     console.log( sCadenaInvocacionServlet );
     //alert( sCadenaInvocacionServlet );
 
@@ -184,15 +184,15 @@
                                   fila.appendChild(elemento);
                    
                                   elemento = document.createElement("td");
-                                  elemento.innerHTML = data.result[nRegistrosJSON].direccion;
-                                  fila.appendChild(elemento);
-                   
-                                  elemento = document.createElement("td");
-                                  elemento.innerHTML = data.result[nRegistrosJSON].telefono;
-                                  fila.appendChild(elemento);
-                   
-                                  elemento = document.createElement("td");
                                   elemento.innerHTML = data.result[nRegistrosJSON].comida;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].cantidad;
+                                  fila.appendChild(elemento);
+                   
+                                  elemento = document.createElement("td");
+                                  elemento.innerHTML = data.result[nRegistrosJSON].fecha_hora;
                                   fila.appendChild(elemento);
                    
                                   elemento = document.createElement("td");

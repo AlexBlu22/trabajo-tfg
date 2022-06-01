@@ -31,9 +31,6 @@
     <link rel="stylesheet" type="text/css" href="../../css/header.css" />
     <link rel="stylesheet" type="text/css" href="../../css/navbar.css" />
 
-    <!-- Personal JS -->
-    <script src="../../js/...js"></script>
-
     <!-- Titulo/logo WEB -->
     <link rel="icon" type="image/png" href="../../image/logo/logo png/logo4.png" />
     <title>myBar · Cliente</title>
@@ -72,7 +69,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../cliente/mostrar_bares.html">
+                            <a class="nav-link active" onclick="fCargarTodosLosBares()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
                                     class="bi bi-bank" viewBox="0 0 16 16">
                                     <path
@@ -83,8 +80,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" onclick="fCargarTodosLosPedidos()" >
-
+                            <a class="nav-link active" onclick="fCargarTodosLosPedidos()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
                                     class="bi bi-card-list" viewBox="0 0 16 16">
                                     <path
@@ -154,6 +150,8 @@
 
         function fBusquedabar(){
     
+            let sUsuario = "";
+
             if (window.location.search != "") {
                 const queryStr = window.location.search.substring(1);
                 let parametro  = queryStr.split("=");
@@ -232,13 +230,33 @@
                 let parametro  = queryStr.split("=");
                     sUsuario  = parametro[1];
             }        
-            console.log( "ID_cliente:" );
+            console.log( "Usuario:" );
             console.log( sUsuario );
 
             let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/pedidos_cliente.html?usuario=" + sUsuario;
             console.log ( sNewURL );
 
             fCargaURL( sNewURL );
+
+     }
+
+
+     /* Ir a la pagina para mostrar todos los bares  */
+     function fCargarTodosLosBares() {
+
+        let sUsuario = "";
+        if (window.location.search != "") {
+            const queryStr = window.location.search.substring(1);
+            let parametro  = queryStr.split("=");
+                sUsuario  = parametro[1];
+        }        
+        console.log( "Usuario:" );
+        console.log( sUsuario );
+
+        let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/mostrar_bares.html?usuario=" + sUsuario;
+        console.log ( sNewURL );
+
+        fCargaURL( sNewURL );
 
      }
 
