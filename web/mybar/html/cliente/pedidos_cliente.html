@@ -251,14 +251,6 @@
                                     fila.appendChild(elemento);
                       
                                     elemento = document.createElement("td");
-                                    elemento.innerHTML = data.result[nRegistrosJSON].direccion;
-                                    fila.appendChild(elemento);
-                      
-                                    elemento = document.createElement("td");
-                                    elemento.innerHTML = data.result[nRegistrosJSON].telefono;
-                                    fila.appendChild(elemento);
-                      
-                                    elemento = document.createElement("td");
                                     elemento.innerHTML = data.result[nRegistrosJSON].comida;
                                     fila.appendChild(elemento);
                       
@@ -268,6 +260,14 @@
                       
                                     elemento = document.createElement("td");
                                     elemento.innerHTML = data.result[nRegistrosJSON].precio;
+                                    fila.appendChild(elemento);
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].cantidad;
+                                    fila.appendChild(elemento);
+                      
+                                    elemento = document.createElement("td");
+                                    elemento.innerHTML = data.result[nRegistrosJSON].preparado;
                                     fila.appendChild(elemento);
                       
                                     tblBody.appendChild(fila);

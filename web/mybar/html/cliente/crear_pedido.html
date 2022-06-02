@@ -49,8 +49,8 @@
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
 
                     <li>
-                        <a href="inf_bar_menu.html" class="nav-link text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="" fill="currentColor"
+                        <a class="nav-link text-white" onclick="fCargarAtras()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" fill="currentColor"
                                 class="bi bi-reply-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z" />
@@ -83,7 +83,7 @@
           </div>
           <div class="row">
             <div class="col-md-4">
-              <label for="hHora" class="form-label">Hora</label>
+              <label for="hHora" class="form-label">Fecha y hora (yyyy-mm-dd hh:mm)</label>
               <input type="text" class="form-control" id="hHora" name="hHora" required />
             </div>
           </div>
@@ -158,7 +158,24 @@
           } 
   
           if ( bCrearPedido ) {
-          
+
+            const queryStr = window.location.search.substring(1);
+            let parametro  = queryStr.split("=");
+                id_bar  = parametro[1];
+                sUsuario = parametro[2];
+      
+            //console.log( parametro );
+            //console.log( id_bar );
+            //console.log( sUsuario );
+      
+            parametro= id_bar.split("&");
+            id_bar = parametro[0];
+      
+            console.log( "ID_bar:" );
+            console.log( id_bar );
+            console.log( "Usuario:" );
+            console.log( sUsuario );
+
             let sCadenaInvocacionServlet = "http://localhost:3000/bar/crear_pedido";
             console.log( sCadenaInvocacionServlet );
             console.log( "(" + sNombreProducto + ") (" + nCantidad + ") (" + hHora + ")" );
@@ -166,9 +183,9 @@
             //alert( "(" + sProducto + ") (" + sPrecio + ") (" + sAlergenos + ")" );
   
             vDataPost = {
-                          "comida": sNombreProducto,
-                          "cantidad": nCantidad,
-                          "fecha_hora": parseFloat( hHora )
+                          "fecha_hora": hHora,
+                          "preparado": "no",
+                          "id_bar": id_bar
                       };
   
             //alert( vDataPost.comida );
@@ -195,7 +212,8 @@
                     if( data == 'Pedido agregado' ) {
                         console.log( 'Comida agregado en BB.DD.' );
                         document.getElementById("CajaMensajes").innerHTML = "Usuario creado correctemente ..."; 
-                        window.location="http://127.0.0.1:5500/web/mybar/html/cliente/inf_bar_menu.html"; 
+                        let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/inf_bar_menu.html?id_bar=" + id_bar + "&usuario=" + sUsuario;
+                        fCargaURL( sNewURL );
                     } else {
                         console.log( 'Error al dar de alta la comida ...' );
                         document.getElementById("CajaMensajes").innerHTML = "Error al crear el pedido revisar datos (precio)...";
@@ -212,7 +230,52 @@
           document.getElementById('nCantidad').value  = "";
           document.getElementById('hHora').value  = "";
       }  
+
+         /* Ir a la pagina para mostrar todos los bares  */
+         function fCargarAtras() {
+
+          let id_bar = 0;
+          let sUsuario = "";
       
+          if (window.location.search != "") {
+      
+            bDatosCabecera = true;
+      
+            const queryStr = window.location.search.substring(1);
+            let parametro  = queryStr.split("=");
+                id_bar  = parametro[1];
+                sUsuario = parametro[2];
+      
+            //console.log( parametro );
+            //console.log( id_bar );
+            //console.log( sUsuario );
+      
+            parametro= id_bar.split("&");
+            id_bar = parametro[0];
+      
+            console.log( "ID_bar:" );
+            console.log( id_bar );
+            console.log( "Usuario:" );
+            console.log( sUsuario );
+  
+            let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/inf_bar_menu.html?id_bar=" + id_bar + "&usuario=" + sUsuario;
+            console.log ( sNewURL );
+  
+            fCargaURL( sNewURL );
+  
+          }
+
+        }
+  
+       /* Función que invoca a la carga de la siguiente pantalla */
+          function fCargaURL(sCargarNewURl) {
+             //alert(window.location.href);
+             //alert(window.location.hostname);
+             //alert(window.location.protocol);
+             //alert(window.location.assign);
+             window.location.href = sCargarNewURl;
+          }  
+
   </script>
 
 </body>

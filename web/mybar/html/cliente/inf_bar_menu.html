@@ -54,7 +54,7 @@
                     <ul class="navbar-nav me-auto mb-2">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../cliente/cliente.v2.html">
+                          <a class="nav-link active" onclick="fCargarHome()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-house" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -67,7 +67,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="../cliente/pedidos_cliente.html">
+                          <a class="nav-link active" onclick="fCargarTodosLosBares()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
                                     class="bi bi-card-list" viewBox="0 0 16 16">
                                     <path
@@ -78,7 +78,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="../cliente/pedidos_cliente.html">
+                          <a class="nav-link active" onclick="fCargarTodosLosPedidos()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="" fill="currentColor"
                                     class="bi bi-card-list" viewBox="0 0 16 16">
                                     <path
@@ -126,13 +126,11 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">nombre del bar</th>
-          <th scope="col">dirección</th>
-          <th scope="col">telefono</th>
           <th scope="col">comida</th>
           <th scope="col">alergenos</th>
           <th scope="col">precio</th>
           <th>
-            <a href="crear_pedido.html" class="nav-link text-dark">
+            <a class="nav-link text-dark" onclick="fCargarPedido()">
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
               </svg>
@@ -272,14 +270,6 @@
                                     fila.appendChild(elemento);
                       
                                     elemento = document.createElement("td");
-                                    elemento.innerHTML = data.result[nRegistrosJSON].direccion;
-                                    fila.appendChild(elemento);
-                      
-                                    elemento = document.createElement("td");
-                                    elemento.innerHTML = data.result[nRegistrosJSON].telefono;
-                                    fila.appendChild(elemento);
-                      
-                                    elemento = document.createElement("td");
                                     elemento.innerHTML = data.result[nRegistrosJSON].comida;
                                     fila.appendChild(elemento);
                       
@@ -307,6 +297,133 @@
     .catch( (error) => { console.log(error); });
 
   };
+
+       /* Ir a la pagina para crear pedido  */
+       function fCargarPedido() {
+
+        let id_bar = 0;
+        let sUsuario = "";
+    
+        if (window.location.search != "") {
+    
+          bDatosCabecera = true;
+    
+          const queryStr = window.location.search.substring(1);
+          let parametro  = queryStr.split("=");
+              id_bar  = parametro[1];
+              sUsuario = parametro[2];
+    
+          //console.log( parametro );
+          //console.log( id_bar );
+          //console.log( sUsuario );
+    
+          parametro= id_bar.split("&");
+          id_bar = parametro[0];
+    
+          console.log( "ID_bar:" );
+          console.log( id_bar );
+          console.log( "Usuario:" );
+          console.log( sUsuario );
+
+          let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/crear_pedido.html?id_bar=" + id_bar + "&usuario=" + sUsuario;
+          console.log ( sNewURL );
+
+          fCargaURL( sNewURL );
+
+        }
+
+      }
+
+         /* Ir a la pagina para mostrar todos los pedidos del cliente  */
+         function fCargarTodosLosPedidos() {
+
+          const queryStr = window.location.search.substring(1);
+          let parametro  = queryStr.split("=");
+              id_bar  = parametro[1];
+              sUsuario = parametro[2];
+    
+          //console.log( parametro );
+          //console.log( id_bar );
+          //console.log( sUsuario );
+    
+          parametro= id_bar.split("&");
+          id_bar = parametro[0];
+    
+          console.log( "ID_bar:" );
+          console.log( id_bar );
+          console.log( "Usuario:" );
+          console.log( sUsuario );
+
+          let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/pedidos_cliente.html?usuario=" + sUsuario;
+          console.log ( sNewURL );
+
+          fCargaURL( sNewURL );
+
+         }
+
+         /* Ir a la pagina Home  */
+         function fCargarHome() {
+
+          const queryStr = window.location.search.substring(1);
+          let parametro  = queryStr.split("=");
+              id_bar  = parametro[1];
+              sUsuario = parametro[2];
+    
+          //console.log( parametro );
+          //console.log( id_bar );
+          //console.log( sUsuario );
+    
+          parametro= id_bar.split("&");
+          id_bar = parametro[0];
+    
+          console.log( "ID_bar:" );
+          console.log( id_bar );
+          console.log( "Usuario:" );
+          console.log( sUsuario );
+
+          let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/cliente.v2.html?usuario=" + sUsuario;
+          console.log ( sNewURL );
+
+          fCargaURL( sNewURL );
+
+         }
+
+
+                /* Ir a la pagina para mostrar todos los bares  */
+       function fCargarTodosLosBares() {
+
+        const queryStr = window.location.search.substring(1);
+        let parametro  = queryStr.split("=");
+            id_bar  = parametro[1];
+            sUsuario = parametro[2];
+  
+        //console.log( parametro );
+        //console.log( id_bar );
+        //console.log( sUsuario );
+  
+        parametro= id_bar.split("&");
+        id_bar = parametro[0];
+  
+        console.log( "ID_bar:" );
+        console.log( id_bar );
+        console.log( "Usuario:" );
+        console.log( sUsuario );
+
+        let sNewURL = "http://127.0.0.1:5500/web/mybar/html/cliente/mostrar_bares.html?usuario=" + sUsuario;
+        console.log ( sNewURL );
+
+        fCargaURL( sNewURL );
+
+       }
+
+        /* Función que invoca a la carga de la siguiente pantalla */
+        function fCargaURL(sCargarNewURl) {
+          //alert(window.location.href);
+          //alert(window.location.hostname);
+          //alert(window.location.protocol);
+          //alert(window.location.assign);
+          window.location.href = sCargarNewURl;
+       }
 
 
 </script>
